@@ -21,7 +21,7 @@ public class MedicineService {
 
     public Medicine findById(long id){
         medicineRepository.findByBarcode(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
-        return medicineRepository.findById(id).get();
+        return medicineRepository.findByBarcode(id).get();
     }
 
     public List<Medicine> findByCategory(Long id){

@@ -26,6 +26,7 @@ public class MedicineController {
         return medicineService.findById(id);
     }
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Medicine add(@RequestBody Medicine medicine){

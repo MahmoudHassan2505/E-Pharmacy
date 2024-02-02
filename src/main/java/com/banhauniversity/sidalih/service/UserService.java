@@ -36,6 +36,7 @@ public class UserService {
         authority.setUsername(addUser.getUsername());
         authority.setAuthority(authorityString);
         authorityRepository.save(authority);
+
         if (addUser.getAuthority().toUpperCase().equals("ADMIN")){
             Authority authority2 = new Authority();
             authority2.setUsername(addUser.getUsername());

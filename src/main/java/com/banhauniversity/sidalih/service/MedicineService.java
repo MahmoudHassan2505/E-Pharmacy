@@ -20,7 +20,7 @@ public class MedicineService {
     }
 
     public Medicine findById(long id){
-        medicineRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+        medicineRepository.findByBarcode(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
         return medicineRepository.findById(id).get();
     }
 

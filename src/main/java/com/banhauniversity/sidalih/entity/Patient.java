@@ -23,6 +23,7 @@ public class Patient {
     private String gender;
     private boolean is_chronic;
     private String level;
+    private String collegeName;
 
     @ManyToMany
     @JoinTable(

@@ -13,7 +13,9 @@ public class AddUser {
     private String username;
     private String password;
     private short enabled;
-    private long phone;
+    private String phone;
     private String authority;
+    private String name;
+    private String nationalId;
 
 }

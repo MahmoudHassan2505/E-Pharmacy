@@ -25,6 +25,7 @@ public class PrescriptionController {
         return prescriptionService.findById(id);
     }
 
+
     @PostMapping
     public Prescription add(@RequestBody Prescription prescription){
         return prescriptionService.add(prescription);

@@ -37,12 +37,13 @@ public class MedicineService {
     }
 
     public void delete(long id){
-        medicineRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
-        medicineRepository.deleteById(id);
+        long deleteMedicine = medicineRepository.findByBarcode(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found)).getId();
+        medicineRepository.deleteById(deleteMedicine);
     }
 
     public Medicine update(Medicine medicine){
-        medicineRepository.findById(medicine.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+        long updateMedicine = medicineRepository.findByBarcode(medicine.getBarcode()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found)).getId();
+        medicine.setId(updateMedicine);
         return medicineRepository.save(medicine);
 
     }

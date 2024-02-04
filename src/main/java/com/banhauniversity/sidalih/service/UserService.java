@@ -28,6 +28,8 @@ public class UserService {
         user.setPassword("{noop}"+addUser.getPassword());
         user.setEnabled((short)1);
         user.setPhone(addUser.getPhone());
+        user.setName(addUser.getName());
+        user.setNationalId(addUser.getNationalId());
 
         userRepository.save(user);
 
@@ -75,4 +77,7 @@ public class UserService {
 
     }
 
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 }

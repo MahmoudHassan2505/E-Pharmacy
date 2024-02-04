@@ -14,4 +14,6 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
 
     @Query("select count(x.prescription.id) from Useage as x where x.prescription.id =?1 and function('to_char',x.date,'yyyy-mm') =?2")
     int useageTimes(long id, String currentDate);
+
+    List<Useage> findAllByUseageMedicinesMedicineName(String name);
 }

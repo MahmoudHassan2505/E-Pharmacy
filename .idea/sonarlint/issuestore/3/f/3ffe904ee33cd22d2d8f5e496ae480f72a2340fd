@@ -1,5 +1,0 @@
-
-y
-java:S1157("cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(—°¼ã
-F
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ

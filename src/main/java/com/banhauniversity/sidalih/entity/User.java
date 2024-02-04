@@ -24,7 +24,9 @@ public class User implements UserDetails {
 
     private short enabled;
 
-    private long phone;
+    private String phone;
+    private String name;
+    private String nationalId;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Authority> authority;
@@ -80,11 +82,11 @@ public class User implements UserDetails {
         this.enabled = enabled;
     }
 
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -94,6 +96,22 @@ public class User implements UserDetails {
 
     public void setAuthority(List<Authority> authority) {
         this.authority = authority;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(String nationalId) {
+        this.nationalId = nationalId;
     }
 }
 

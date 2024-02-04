@@ -101,4 +101,7 @@ public class UseageService {
         throw new CustomException(ExceptionMessage.Patient_Exceeded_Useage_Limit);
     }
 
+    public List<Useage> findByMedicineName(String medicineName) {
+        return useageRepository.findAllByUseageMedicinesMedicineName(medicineName);
+    }
 }

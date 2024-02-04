@@ -1,5 +1,6 @@
 package com.banhauniversity.sidalih.controller;
 
+import com.banhauniversity.sidalih.entity.Medicine;
 import com.banhauniversity.sidalih.entity.Useage;
 import com.banhauniversity.sidalih.repository.UseageRepository;
 import com.banhauniversity.sidalih.service.UseageService;
@@ -25,6 +26,11 @@ public class UseageController {
     @GetMapping("/{id}")
     public Useage findById(@PathVariable long id){
         return useageService.findById(id);
+    }
+
+    @GetMapping("/medicine")
+    public List<Useage> findByMedicineName(@RequestParam String medicineName){
+        return useageService.findByMedicineName(medicineName);
     }
 
     @PostMapping()

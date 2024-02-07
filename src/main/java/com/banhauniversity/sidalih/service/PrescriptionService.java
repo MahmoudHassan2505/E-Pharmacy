@@ -36,4 +36,7 @@ public class PrescriptionService {
         return true;
     }
 
+    public List<Prescription> findByType(boolean isChronic) {
+        return prescriptionRepository.findAllByPrsPrescriptionCategoryId(isChronic? 1:2);
+    }
 }

@@ -20,6 +20,11 @@ public class PrescriptionController {
         return prescriptionService.findAll();
     }
 
+    @GetMapping("/type")
+    public List<Prescription> findByType(@RequestParam boolean isChronic){
+        return prescriptionService.findByType(isChronic);
+    }
+
     @GetMapping("/{id}")
     public Prescription findById(@PathVariable long id){
         return prescriptionService.findById(id);

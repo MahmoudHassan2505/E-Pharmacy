@@ -36,4 +36,8 @@ public class PatientServices {
     public void delete(long id){
         patientRepository.deleteById(id);
     }
+
+    public List<Patient> findByType(boolean isChronic) {
+        return patientRepository.findAllByChronic(isChronic);
+    }
 }

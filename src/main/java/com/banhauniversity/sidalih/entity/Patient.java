@@ -21,7 +21,8 @@ public class Patient {
     private long student_id;
     private String name;
     private String gender;
-    private boolean is_chronic;
+    @Column(name = "is_chronic")
+    private boolean chronic;
     private String level;
     private String collegeName;
 

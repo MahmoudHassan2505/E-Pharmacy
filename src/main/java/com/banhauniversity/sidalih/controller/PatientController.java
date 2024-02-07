@@ -21,6 +21,11 @@ public class PatientController {
         return patientServices.findAll();
     }
 
+    @GetMapping("/type")
+    public List<Patient> findChronic(@RequestParam boolean isChronic){
+        return patientServices.findByType(isChronic);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Patient add(@RequestBody Patient patient){

@@ -47,8 +47,6 @@ j
 :src/main/java/com/banhauniversity/sidalih/entity/User.java,3\c\3c1655049928f7032411144dd091533560ead1fc
 y
 Isrc/main/java/com/banhauniversity/sidalih/controller/OrderController.java,f\a\fac39eec0daf7ea47c8b2e7ba13124e2872619a7
-v
-Fsrc/main/java/com/banhauniversity/sidalih/service/MedicineService.java,6\c\6cf496221f511254cdbabb0c808486570bf441ff
 r
 Bsrc/main/java/com/banhauniversity/sidalih/service/UserService.java,3\f\3ffe904ee33cd22d2d8f5e496ae480f72a2340fd
 z

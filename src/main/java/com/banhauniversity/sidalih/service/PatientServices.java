@@ -20,6 +20,9 @@ public class PatientServices {
     }
 
     public Patient add(Patient patient){
+        patientRepository.findById(patient.getNational_id()).ifPresent(a -> {
+          throw new CustomException(ExceptionMessage.ID_is_Exist);
+        });
         return patientRepository.save(patient);
     }
 

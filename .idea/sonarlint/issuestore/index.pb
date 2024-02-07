@@ -9,8 +9,6 @@ h
 8src/main/java/com/banhauniversity/sidalih/dto/Token.java,f\3\f3f3ba0b8de3a164a7b396994cc3d80ce44262ed
 o
 ?src/main/java/com/banhauniversity/sidalih/entity/Inventory.java,3\1\31d6f1ccf44e27d04919db66dc80a7b701f08182
-n
->src/main/java/com/banhauniversity/sidalih/controller/Auth.java,a\b\aba3d4da184960800dae32c7d223d5c2915ff396
 r
 Bsrc/main/java/com/banhauniversity/sidalih/security/JwtService.java,a\2\a21949a701cb12937181366a537b4426648cba25
 x
@@ -57,12 +55,6 @@ z
 Jsrc/main/java/com/banhauniversity/sidalih/service/PrescriptionService.java,4\8\486d8951d63ebb8d003dbff78097000708c4946c
 €
 Psrc/main/java/com/banhauniversity/sidalih/repository/PrescriptionRepository.java,5\f\5f2c56e6cc460e9453bd91cefd29c0337af5cf9d
-x
-Hsrc/main/java/com/banhauniversity/sidalih/controller/UserController.java,d\4\d4a608f8c5054cb6d7c57b4cb457459e29a847b0
-r
-Bsrc/main/java/com/banhauniversity/sidalih/entity/Prescription.java,7\0\708ed5fbae9b21d80fb9a4ac180f58a2e49668b2
-t
-Dsrc/main/java/com/banhauniversity/sidalih/entity/UseageMedicine.java,9\1\91881b00fb6e18f3cfa2c36c73cf9b20ee3a87f8
 n
 >src/main/java/com/banhauniversity/sidalih/entity/Medicine.java,a\3\a346aad917f0cb4240ea5d313a77e21e3884c4b4
 z
@@ -75,7 +67,5 @@ Fsrc/main/java/com/banhauniversity/sidalih/security/SecurityConfig.java,4\9\498
 Lsrc/main/java/com/banhauniversity/sidalih/controller/SupplierController.java,c\b\cbdd3955372da15e5b8eae2bd7ccbbac6cbfbb9d
 |
 Lsrc/main/java/com/banhauniversity/sidalih/repository/SupplierRepository.java,7\2\728cdf59f09ccbb2de01917f29e7fb7d2c0dfa88
-l
-<src/main/java/com/banhauniversity/sidalih/entity/Useage.java,8\8\88ac8f468a6b3860c296e4e7ca1001ff850498fa
 z
 Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1

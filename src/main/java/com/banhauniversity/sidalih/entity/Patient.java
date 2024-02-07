@@ -25,7 +25,7 @@ public class Patient {
     private boolean chronic;
     private String level;
     private String collegeName;
-    private long age;
+    private Integer age;
 
     @ManyToMany
     @JoinTable(

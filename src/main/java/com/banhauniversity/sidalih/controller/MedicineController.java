@@ -44,8 +44,13 @@ public class MedicineController {
     }
 
     @GetMapping("/category/{id}")
-    public List<Medicine> findByCategory(@PathVariable Long id){
+    public List<Medicine>findByCategory(@PathVariable Long id){
         return medicineService.findByCategory(id);
+    }
+
+    @GetMapping("/mix")
+    public List<Medicine>findMix(){
+        return medicineService.findMix();
     }
 
 }

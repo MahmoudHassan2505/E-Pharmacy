@@ -4,16 +4,20 @@ import com.banhauniversity.sidalih.entity.Medicine;
 import com.banhauniversity.sidalih.entity.MedicineCategory;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
+import com.banhauniversity.sidalih.repository.MedicineCategoryRepository;
 import com.banhauniversity.sidalih.repository.MedicineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MedicineService {
     @Autowired
     MedicineRepository medicineRepository;
+    @Autowired
+    MedicineCategoryRepository medicineCategoryRepository;
 
     public List<Medicine> findAll(){
         return medicineRepository.findAll();
@@ -46,5 +50,9 @@ public class MedicineService {
         medicine.setId(updateMedicine);
         return medicineRepository.save(medicine);
 
+    }
+
+    public List<Medicine> findMix() {
+        return medicineRepository.findMix();
     }
 }

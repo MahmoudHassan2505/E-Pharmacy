@@ -149,25 +149,25 @@ CREATE TABLE IF NOT EXISTS prescription_category
     CONSTRAINT prescription_category_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS prescription
+CREATE TABLE IF NOT EXISTS public.prescription
 (
     id bigint NOT NULL,
     category_id bigint NOT NULL,
     is_allowed boolean NOT NULL,
     pateint_id bigint NOT NULL,
+    diagnosis character varying COLLATE pg_catalog."default",
     CONSTRAINT prescription_pkey PRIMARY KEY (id),
     CONSTRAINT prescription_id_key UNIQUE (id),
     CONSTRAINT "category_FK" FOREIGN KEY (category_id)
         REFERENCES prescription_category (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        ,
+        ON DELETE NO ACTION,
     CONSTRAINT "patient_prescription_FK" FOREIGN KEY (pateint_id)
         REFERENCES patient (national_id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-
 );
+
 
 
 
@@ -216,6 +216,12 @@ CREATE TABLE IF NOT EXISTS notifications
         REFERENCES medicine (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS prescription_medicine
+(
+    prescription_id bigint NOT NULL,
+    medicine_id bigint NOT NULL
 );
 
 END;

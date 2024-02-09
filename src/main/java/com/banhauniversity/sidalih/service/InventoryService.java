@@ -26,7 +26,7 @@ public class InventoryService {
         return inventoryRepository.save(inventory);
     }
     public List<Inventory>findByMedicineId(long id){
-        return inventoryRepository.findByMedicineId(id);
+        return inventoryRepository.findByMedicineBarcode(id);
     }
 
     public Inventory findByIdAndExpireDate(long id, Date expireDate){

@@ -1,10 +1,12 @@
 package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.entity.Medicine;
+import com.banhauniversity.sidalih.entity.Notification;
 import com.banhauniversity.sidalih.entity.Useage;
 import com.banhauniversity.sidalih.entity.UseageMedicine;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
+import com.banhauniversity.sidalih.repository.NotificationRepository;
 import com.banhauniversity.sidalih.repository.UseageMedicineRepository;
 import com.banhauniversity.sidalih.repository.UseageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ public class UseageService {
     @Autowired private UseageRepository useageRepository;
     @Autowired private UseageMedicineRepository useageMedicineRepository;
     @Autowired private InventoryService inventoryService;
+    @Autowired private NotificationRepository notificationRepository;
 
     public List<Useage> findAll(){
         return useageRepository.findAll();
@@ -28,10 +31,12 @@ public class UseageService {
         return useageRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
     }
 
-    public Useage add(Useage useage,boolean isChronic){
+    public Useage add(Useage useage){
         useageRepository.findById(useage.getId()).ifPresent((a)->{
             throw new CustomException(ExceptionMessage.ID_is_Exist);
         });
+
+        boolean isChronic = useage.getPrescription().getPrsPrescriptionCategory().getId()==1;
 
         ValidateMedicine(useage);
         ValidatePrescription(useage);
@@ -46,11 +51,10 @@ public class UseageService {
 
         });
 
+        updateNotifications(savedUseage.getId());
+
         return useageRepository.findById(savedUseage.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
     }
-
-
-
 
     public Useage update(Useage useage){
         useageRepository.findById(useage.getId()).ifPresent((x)-> new CustomException(ExceptionMessage.ID_Not_Found));
@@ -65,7 +69,7 @@ public class UseageService {
 
     private void ValidateMedicine(Useage useage) {
     useage.getUseageMedicines().forEach((medicine)-> {
-        if (medicine.getAmount() > inventoryService.Status(medicine.getId()).getAmount()) {
+        if (medicine.getAmount() > inventoryService.Status(medicine.getMedicine().getId()).getAmount()) {
             throw new CustomException(ExceptionMessage.Not_Enough_Amount);
         }
     });
@@ -103,5 +107,15 @@ public class UseageService {
 
     public List<Useage> findByMedicineName(String medicineName) {
         return useageRepository.findAllByUseageMedicinesMedicineName(medicineName);
+    }
+
+    private void updateNotifications(Long id) {
+        Useage useage = useageRepository.findById(id).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
+        System.out.println("hello3");
+        useage.getUseageMedicines().forEach((medicine)->{
+            if (medicine.getMedicine().getAlertamount() >= inventoryService.Status(medicine.getMedicine().getId()).getAmount()){
+                notificationRepository.save(new Notification("اوشك الدواء علي النفاد",medicine.getMedicine()));
+            }
+        });
     }
 }

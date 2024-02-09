@@ -54,4 +54,8 @@ public class InventoryService {
         inventoryRepository.save(inventory);
 
     }
+
+    public List<MedicineStatus> inventoryOfItems(){
+        return inventoryRepository.inventoryOfItems();
+    }
 }

@@ -2,7 +2,6 @@ package com.banhauniversity.sidalih.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 @Builder
@@ -18,9 +17,14 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private short type;
+    private String message;
 
     @ManyToOne()
     @JoinColumn(name = "medicine_id")
     private Medicine medicine;
+
+    public Notification(String message, Medicine medicine) {
+        this.message = message;
+        this.medicine = medicine;
+    }
 }

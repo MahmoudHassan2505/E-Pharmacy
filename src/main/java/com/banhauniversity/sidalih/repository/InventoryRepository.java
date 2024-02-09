@@ -20,4 +20,7 @@ public interface InventoryRepository extends JpaRepository<Inventory,Long> {
 
     @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.medicine  , sum(x.amount)) from Inventory as x where x.medicine.id =?1 group by x.medicine")
     MedicineStatus medicineStatus(long id);
+
+    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.medicine  , sum(x.amount)) from Inventory as x group by x.medicine")
+    List<MedicineStatus> inventoryOfItems();
 }

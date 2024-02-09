@@ -34,8 +34,8 @@ public class UseageController {
     }
 
     @PostMapping()
-    public Useage add(@RequestBody Useage useage,@RequestParam("isChronic") boolean type){
-        return useageService.add(useage,type);
+    public Useage add(@RequestBody Useage useage){
+        return useageService.add(useage);
     }
 
     @PutMapping

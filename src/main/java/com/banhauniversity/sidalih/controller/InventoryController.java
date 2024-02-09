@@ -1,6 +1,8 @@
 package com.banhauniversity.sidalih.controller;
 
+import com.banhauniversity.sidalih.dto.MedicineStatus;
 import com.banhauniversity.sidalih.entity.Inventory;
+import com.banhauniversity.sidalih.entity.Medicine;
 import com.banhauniversity.sidalih.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,11 @@ public class InventoryController {
     @GetMapping
     public List<Inventory> findAll(){
         return inventoryService.findALl();
+    }
+
+    @GetMapping("/all")
+    public List<MedicineStatus> inventoryOfItems(){
+        return inventoryService.inventoryOfItems();
     }
 
     @GetMapping("/{id}")

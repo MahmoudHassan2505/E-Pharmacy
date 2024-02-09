@@ -224,4 +224,16 @@ CREATE TABLE IF NOT EXISTS prescription_medicine
     medicine_id bigint NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS notifications
+(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 0 MINVALUE 0 MAXVALUE 9223372036854775807 CACHE 1 ),
+    medicine_id bigint NOT NULL,
+    message character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT notifications_pkey PRIMARY KEY (id),
+    CONSTRAINT "medicine_Fk" FOREIGN KEY (medicine_id)
+        REFERENCES medicine (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
 END;

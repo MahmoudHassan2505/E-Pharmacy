@@ -61,8 +61,6 @@ Xsrc/main/java/com/banhauniversity/sidalih/controller/PrescriptionCategoryContro
 Xsrc/main/java/com/banhauniversity/sidalih/repository/PrescriptionCategoryRepository.java,9\b\9b2fd6407324682e42dd69584507d196a7780203
 }
 Msrc/main/java/com/banhauniversity/sidalih/controller/DashboardController.java,8\d\8d26f7aa46abcfa11bb85e68e62506929461f59b
-|
-Lsrc/main/java/com/banhauniversity/sidalih/controller/MedicineController.java,c\c\cca59f7a974d9e29354b3d84c1ecbb9faf08cea2
 v
 Fsrc/main/java/com/banhauniversity/sidalih/service/MedicineService.java,6\c\6cf496221f511254cdbabb0c808486570bf441ff
 |

@@ -1,11 +1,9 @@
 package com.banhauniversity.sidalih.service;
 
-import com.banhauniversity.sidalih.entity.Medicine;
-import com.banhauniversity.sidalih.entity.Notification;
-import com.banhauniversity.sidalih.entity.Useage;
-import com.banhauniversity.sidalih.entity.UseageMedicine;
+import com.banhauniversity.sidalih.entity.*;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
+import com.banhauniversity.sidalih.repository.InventoryRepository;
 import com.banhauniversity.sidalih.repository.NotificationRepository;
 import com.banhauniversity.sidalih.repository.UseageMedicineRepository;
 import com.banhauniversity.sidalih.repository.UseageRepository;
@@ -13,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -22,6 +22,7 @@ public class UseageService {
     @Autowired private UseageMedicineRepository useageMedicineRepository;
     @Autowired private InventoryService inventoryService;
     @Autowired private NotificationRepository notificationRepository;
+    @Autowired private InventoryRepository inventoryRepository;
 
     public List<Useage> findAll(){
         return useageRepository.findAll();
@@ -38,7 +39,24 @@ public class UseageService {
 
         boolean isChronic = useage.getPrescription().getPrsPrescriptionCategory().getId()==1;
 
+
         ValidateMedicine(useage);
+
+        //set most expired price
+        useage.getUseageMedicines().stream().forEach(useageMedicine -> {
+            List<Inventory> inventoryList = inventoryRepository.findByMedicineId(useageMedicine.getMedicine().getId());
+            Collections.sort(inventoryList, new Comparator<Inventory>() {
+                public int compare(Inventory o1, Inventory o2) {
+                    return o1.getExpireDate().compareTo(o2.getExpireDate());
+                }
+            });
+           useageMedicine.setPrice(inventoryList.get(0).getPrice());
+        });
+
+
+
+
+
         ValidatePrescription(useage);
         ValidatePrescriptionTimes(useage,isChronic);
 
@@ -114,7 +132,7 @@ public class UseageService {
         System.out.println("hello3");
         useage.getUseageMedicines().forEach((medicine)->{
             if (medicine.getMedicine().getAlertamount() >= inventoryService.Status(medicine.getMedicine().getId()).getAmount()){
-                notificationRepository.save(new Notification("اوشك الدواء علي النفاد",medicine.getMedicine()));
+                notificationRepository.save(new Notification("أوشك علي النفاد",medicine.getMedicine()));
             }
         });
     }

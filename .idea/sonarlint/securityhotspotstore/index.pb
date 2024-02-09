@@ -65,8 +65,6 @@ Msrc/main/java/com/banhauniversity/sidalih/controller/DashboardController.java,
 Lsrc/main/java/com/banhauniversity/sidalih/repository/MedicineRepository.java,0\a\0a00df3587f3c2548e3b0607862544be28ee52ff
 v
 Fsrc/main/java/com/banhauniversity/sidalih/service/MedicineService.java,6\c\6cf496221f511254cdbabb0c808486570bf441ff
-|
-Lsrc/main/java/com/banhauniversity/sidalih/controller/MedicineController.java,c\c\cca59f7a974d9e29354b3d84c1ecbb9faf08cea2
 m
 =src/main/java/com/banhauniversity/sidalih/entity/Patient.java,d\3\d3cd83ffcda19424d1187c20e9378adbd22a26b0
 m

@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory,Long> {
 
-    List<Inventory>findByMedicineId(long id);
+    List<Inventory>findByMedicineBarcode(long id);
     Inventory findByMedicineIdAndExpireDate(long id, Date expireDate);
 
     @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.medicine  , sum(x.amount)) from Inventory as x where x.medicine.id =?1 group by x.medicine")

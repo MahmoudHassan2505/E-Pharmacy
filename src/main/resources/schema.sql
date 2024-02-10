@@ -236,4 +236,13 @@ CREATE TABLE IF NOT EXISTS notifications
         ON DELETE NO ACTION
 );
 
+ALTER TABLE IF EXISTS public.inventory
+    ADD CONSTRAINT "order_medicineFK" FOREIGN KEY (medicine_id)
+        REFERENCES order_medicine (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID;
+CREATE INDEX IF NOT EXISTS "fki_order_medicineFK"
+    ON inventory(medicine_id);
+
 END;

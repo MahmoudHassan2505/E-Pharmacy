@@ -10,6 +10,6 @@ import lombok.*;
 @Builder
 @Data
 public class InventoryDto {
-    private long amount;
+    private long amountNeeded;
     private Inventory inventory;
 }

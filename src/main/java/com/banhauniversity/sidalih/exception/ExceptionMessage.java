@@ -8,6 +8,7 @@ public enum ExceptionMessage {
     Patient_Exceeded_Useage_Limit("patient exceeded Useage Limit"),
     Negative_Number("amount is negative"),
     CANNOT_CREATE_USER("can't create User"),
+    CANNOT_DELETE_THIS_MEDICINE("this mnedicine is already used"),
     Not_Enough_Amount("not Enough amount");
 
     String message;

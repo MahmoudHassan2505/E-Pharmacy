@@ -26,23 +26,20 @@ public class InventoryService {
     public Inventory add(Inventory inventory){
         return inventoryRepository.save(inventory);
     }
-    public List<Inventory>findByMedicineId(long id){
-        return inventoryRepository.findByMedicineBarcode(id);
-    }
 
-    public Inventory findByIdAndExpireDate(long id, Date expireDate){
-        return inventoryRepository.findByMedicineIdAndExpireDate(id,expireDate);
-    }
+
+
 
     public MedicineStatus Status(long id){
         return inventoryRepository.medicineStatus(id);
     }
 
     public void update(Inventory inventory,long amount){
-        if (amount<0){
+        if (amount<0 || inventoryRepository.findById(inventory.getId()).get().getAmount()+amount>inventory.getOrderMedicine().getAmount()){
             throw new CustomException(ExceptionMessage.Not_Enough_Amount);
         }
-        inventory.setAmount(inventoryRepository.findById(inventory.getId()).get().getAmount()-amount);
+
+        inventory.setAmount(inventoryRepository.findById(inventory.getId()).get().getAmount()+amount);
 
         inventoryRepository.save(inventory);
 
@@ -54,5 +51,9 @@ public class InventoryService {
 
     public Inventory findById(long id) {
         return inventoryRepository.findById(id).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
+    }
+
+    public List<Inventory> findByMedicineId(long id) {
+        return inventoryRepository.findAllByOrderMedicineMedicineBarcode(id);
     }
 }

@@ -48,10 +48,10 @@ public class UseageService {
         List<UseageMedicine> useageMedicines = new ArrayList<>();
 
         addUsage.getInventoryDto().forEach(inventoryDto -> {
-            useageMedicines.add(new UseageMedicine(inventoryDto.getAmount(),inventoryDto.getInventory().getPrice(),inventoryDto.getInventory().getMedicine()));
+            useageMedicines.add(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),inventoryDto.getInventory().getOrderMedicine().getMedicine()));
 
 //            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmount(),inventoryDto.getInventory().getPrice(),savedUseage,inventoryDto.getInventory().getMedicine()));
-//            updateInventory(addUsage.getInventoryDto());
+              updateInventory(addUsage.getInventoryDto());
 
         });
 
@@ -78,7 +78,8 @@ public class UseageService {
 
     private void ValidateMedicine(AddUsage addUsage) {
         addUsage.getInventoryDto().forEach((inventoryDto)-> {
-        if (inventoryDto.getAmount() > inventoryService.findById(inventoryDto.getInventory().getId()).getAmount()) {
+            Inventory inventory = inventoryService.findById(inventoryDto.getInventory().getId());
+        if (inventoryDto.getAmountNeeded() > (inventory.getOrderMedicine().getAmount()-inventory.getAmount())) {
             throw new CustomException(ExceptionMessage.Not_Enough_Amount);
         }
     });
@@ -89,7 +90,7 @@ public class UseageService {
         long total=0;
 
         for (InventoryDto inventoryDto:addUsage.getInventoryDto()) {
-            total+=inventoryDto.getAmount()*inventoryDto.getInventory().getPrice();
+            total+=inventoryDto.getAmountNeeded()*inventoryDto.getInventory().getOrderMedicine().getPrice();
         }
         if(total>350){
             throw new CustomException(ExceptionMessage.Patient_Exceeded_Price_Limit);
@@ -98,7 +99,7 @@ public class UseageService {
 
     private void updateInventory(List<InventoryDto> inventoryDtos) {
         inventoryDtos.forEach( inventoryDto -> {
-            inventoryService.update(inventoryDto.getInventory(),inventoryDto.getAmount());
+            inventoryService.update(inventoryDto.getInventory(),inventoryDto.getAmountNeeded());
         });
     }
 

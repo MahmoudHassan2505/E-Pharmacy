@@ -19,11 +19,10 @@ public class Inventory  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long amount;
-    private long price;
-    private Date expireDate;
+
 
     @ManyToOne
     @JoinColumn(name = "medicine_id")
-    private Medicine medicine;
+    private OrderMedicine orderMedicine;
 
 }

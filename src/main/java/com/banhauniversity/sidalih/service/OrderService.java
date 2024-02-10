@@ -10,6 +10,7 @@ import com.banhauniversity.sidalih.repository.OrderMedicineRepository;
 import com.banhauniversity.sidalih.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,8 +52,8 @@ public class OrderService {
             orderMedicineRepository.save(orderMedicine);
         });
 
-        order.getOrderMedicines().forEach((orderMedicine)->{
-            inventoryService.add(Inventory.builder().medicine(orderMedicine.getMedicine()).amount(orderMedicine.getAmount()).price(orderMedicine.getPrice()).expireDate(orderMedicine.getExpirydate()).build());
+        orderRepository.findById(savedOrder.getId()).get().getOrderMedicines().forEach((orderMedicine)->{
+            inventoryService.add(Inventory.builder().orderMedicine(orderMedicine).amount(0).build());
         });
         return order;
     }
@@ -62,21 +63,21 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
+    @Transactional
     public Order update(Order neworder){
         Order oldOrder = orderRepository.findById(neworder.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
-
-        oldOrder.getOrderMedicines().forEach(orderMedicine -> {
-            orderMedicineRepository.deleteById(oldOrder.getId());
-        });
         orderRepository.save(neworder);
+        oldOrder.getOrderMedicines().forEach(orderMedicine -> {
+            inventoryRepository.deleteByOrderMedicine(orderMedicine);
+            orderMedicineRepository.deleteById(orderMedicine.getId());
+        });
 
         neworder.getOrderMedicines().forEach(orderMedicine -> {
             orderMedicine.setOrder(neworder);
             orderMedicineRepository.save(orderMedicine);
         });
 
-        //update Inventory
-        //we need to update database schema connect inventory to orderMedicine not medicine
+
         return orderRepository.findById(neworder.getId()).get();
     }
 }

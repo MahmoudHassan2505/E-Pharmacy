@@ -15,8 +15,6 @@ y
 Isrc/main/java/com/banhauniversity/sidalih/exception/ExceptionMessage.java,7\c\7cab361d463d90e5a8092dcc8c41cb49d00d93b2
 
 Osrc/main/java/com/banhauniversity/sidalih/exception/GlobalExceptionHandler.java,2\5\25da57dd95f390ff7dd6ddeb47a464a1f702410a
-k
-;src/main/java/com/banhauniversity/sidalih/entity/Order.java,0\0\008690e86c9f2acabd2481988f13413ad9a5b299
 o
 ?src/main/java/com/banhauniversity/sidalih/entity/Authority.java,d\1\d16a45ff1df9c84a05dc1751521136070b7e9304
 v
@@ -67,8 +65,6 @@ m
 =src/main/java/com/banhauniversity/sidalih/entity/Disease.java,8\2\8210eee85843f963a6b4ffaf9d7529091466eeaf
 „
 Tsrc/main/java/com/banhauniversity/sidalih/controller/MedicineCategoryController.java,c\0\c0e03d1baa7880602da22319f5e11b2ce88586c5
-y
-Isrc/main/java/com/banhauniversity/sidalih/controller/OrderController.java,f\a\fac39eec0daf7ea47c8b2e7ba13124e2872619a7
 €
 Psrc/main/java/com/banhauniversity/sidalih/repository/PrescriptionRepository.java,5\f\5f2c56e6cc460e9453bd91cefd29c0337af5cf9d
 r

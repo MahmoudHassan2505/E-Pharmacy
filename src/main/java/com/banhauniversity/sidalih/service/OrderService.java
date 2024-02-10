@@ -64,7 +64,15 @@ public class OrderService {
 
     public Order update(Order order){
         orderRepository.findById(order.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
-        return orderRepository.save(order);
+        Order savedOrder =  orderRepository.save(order);
+
+        order.getOrderMedicines().forEach(orderMedicine -> {
+            orderMedicineRepository.findById(orderMedicine.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
+            orderMedicine.setOrder(savedOrder);
+            orderMedicineRepository.save(orderMedicine);
+        });
+
+        return orderRepository.findById(order.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
 
     }
 }

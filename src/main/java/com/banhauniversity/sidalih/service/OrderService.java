@@ -62,17 +62,21 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
-    public Order update(Order order){
-        orderRepository.findById(order.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
-        Order savedOrder =  orderRepository.save(order);
+    public Order update(Order neworder){
+        Order oldOrder = orderRepository.findById(neworder.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
 
-        order.getOrderMedicines().forEach(orderMedicine -> {
-            orderMedicineRepository.findById(orderMedicine.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
-            orderMedicine.setOrder(savedOrder);
+        oldOrder.getOrderMedicines().forEach(orderMedicine -> {
+            orderMedicineRepository.deleteById(oldOrder.getId());
+        });
+        orderRepository.save(neworder);
+
+        neworder.getOrderMedicines().forEach(orderMedicine -> {
+            orderMedicine.setOrder(neworder);
             orderMedicineRepository.save(orderMedicine);
         });
 
-        return orderRepository.findById(order.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
-
+        //update Inventory
+        //we need to update database schema connect inventory to orderMedicine not medicine
+        return orderRepository.findById(neworder.getId()).get();
     }
 }

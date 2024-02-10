@@ -47,16 +47,13 @@ public class UseageService {
 
         List<UseageMedicine> useageMedicines = new ArrayList<>();
 
-        addUsage.getInventoryDto().forEach(inventoryDto -> {
-            useageMedicines.add(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),inventoryDto.getInventory().getOrderMedicine().getMedicine()));
+        Useage savedUseage = useageRepository.save(new Useage(addUsage.getDate(),addUsage.getPrescription(), useageMedicines));
 
-//            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmount(),inventoryDto.getInventory().getPrice(),savedUseage,inventoryDto.getInventory().getMedicine()));
-              updateInventory(addUsage.getInventoryDto());
+        addUsage.getInventoryDto().forEach(inventoryDto -> {
+            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),savedUseage,inventoryDto.getInventory().getOrderMedicine().getMedicine()));
+            updateInventory(addUsage.getInventoryDto());
 
         });
-
-        Useage savedUseage = useageRepository.saveAndFlush(new Useage(addUsage.getDate(),addUsage.getPrescription(),useageMedicines));
-
 
 
         updateNotifications(savedUseage.getId());

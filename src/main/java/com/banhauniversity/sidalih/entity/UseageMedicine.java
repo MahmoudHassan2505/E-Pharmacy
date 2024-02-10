@@ -29,9 +29,10 @@ public class UseageMedicine {
     @JoinColumn(name = "medicine_id")
     private Medicine medicine;
 
-    public UseageMedicine(long amount, long price, Medicine medicine) {
+    public UseageMedicine(long amount, long price, Useage useage, Medicine medicine) {
         this.amount = amount;
         this.price = price;
+        this.useage = useage;
         this.medicine = medicine;
     }
 }

@@ -39,6 +39,7 @@ E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\controller\Me
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\dto\AddUser.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\service\DiseaseService.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\controller\OrderController.java
+E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\dto\InventoryDto.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\entity\Supplier.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\security\JwtTokenFilter.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\exception\ExceptionMessage.java
@@ -47,6 +48,7 @@ E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\entity\Author
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\repository\PatientRepository.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\repository\OrderMedicineRepository.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\controller\UserController.java
+E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\dto\AddUsage.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\entity\Notification.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\controller\DashboardController.java
 E:\University\E-Pharmacy\src\main\java\com\banhauniversity\sidalih\entity\UseageMedicine.java

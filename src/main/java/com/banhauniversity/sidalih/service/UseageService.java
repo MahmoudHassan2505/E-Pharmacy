@@ -1,5 +1,7 @@
 package com.banhauniversity.sidalih.service;
 
+import com.banhauniversity.sidalih.dto.AddUsage;
+import com.banhauniversity.sidalih.dto.InventoryDto;
 import com.banhauniversity.sidalih.entity.*;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -32,47 +35,35 @@ public class UseageService {
         return useageRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
     }
 
-    public Useage add(Useage useage){
-        useageRepository.findById(useage.getId()).ifPresent((a)->{
-            throw new CustomException(ExceptionMessage.ID_is_Exist);
-        });
-
-        boolean isChronic = useage.getPrescription().getPrsPrescriptionCategory().getId()==1;
+    public Useage add(AddUsage addUsage){
 
 
-        ValidateMedicine(useage);
-
-        //set most expired price
-        useage.getUseageMedicines().stream().forEach(useageMedicine -> {
-            List<Inventory> inventoryList = inventoryRepository.findByMedicineId(useageMedicine.getMedicine().getId());
-            Collections.sort(inventoryList, new Comparator<Inventory>() {
-                public int compare(Inventory o1, Inventory o2) {
-                    return o1.getExpireDate().compareTo(o2.getExpireDate());
-                }
-            });
-           useageMedicine.setPrice(inventoryList.get(0).getPrice());
-        });
+        boolean isChronic = addUsage.getPrescription().getPrsPrescriptionCategory().getId()==1;
 
 
+        ValidateMedicine(addUsage);
+        ValidatePrescription(addUsage);
+        ValidatePrescriptionTimes(addUsage,isChronic);
 
+        List<UseageMedicine> useageMedicines = new ArrayList<>();
 
+        addUsage.getInventoryDto().forEach(inventoryDto -> {
+            useageMedicines.add(new UseageMedicine(inventoryDto.getAmount(),inventoryDto.getInventory().getPrice(),inventoryDto.getInventory().getMedicine()));
 
-        ValidatePrescription(useage);
-        ValidatePrescriptionTimes(useage,isChronic);
-
-        Useage savedUseage = useageRepository.saveAndFlush(useage);
-
-        useage.getUseageMedicines().forEach(useageMedicine -> {
-            useageMedicine.setUseage(savedUseage);
-            useageMedicineRepository.save(useageMedicine);
-            updateInventory(useageMedicine.getMedicine(),useageMedicine.getAmount());
+//            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmount(),inventoryDto.getInventory().getPrice(),savedUseage,inventoryDto.getInventory().getMedicine()));
+//            updateInventory(addUsage.getInventoryDto());
 
         });
+
+        Useage savedUseage = useageRepository.saveAndFlush(new Useage(addUsage.getDate(),addUsage.getPrescription(),useageMedicines));
+
+
 
         updateNotifications(savedUseage.getId());
 
         return useageRepository.findById(savedUseage.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
     }
+
 
     public Useage update(Useage useage){
         useageRepository.findById(useage.getId()).ifPresent((x)-> new CustomException(ExceptionMessage.ID_Not_Found));
@@ -85,39 +76,41 @@ public class UseageService {
     }
 
 
-    private void ValidateMedicine(Useage useage) {
-    useage.getUseageMedicines().forEach((medicine)-> {
-        if (medicine.getAmount() > inventoryService.Status(medicine.getMedicine().getId()).getAmount()) {
+    private void ValidateMedicine(AddUsage addUsage) {
+        addUsage.getInventoryDto().forEach((inventoryDto)-> {
+        if (inventoryDto.getAmount() > inventoryService.findById(inventoryDto.getInventory().getId()).getAmount()) {
             throw new CustomException(ExceptionMessage.Not_Enough_Amount);
         }
     });
 
     }
 
-    private void ValidatePrescription(Useage useage) {
+    private void ValidatePrescription(AddUsage addUsage) {
         long total=0;
 
-        for (UseageMedicine medicine:useage.getUseageMedicines()) {
-            total+=medicine.getAmount()*medicine.getPrice();
+        for (InventoryDto inventoryDto:addUsage.getInventoryDto()) {
+            total+=inventoryDto.getAmount()*inventoryDto.getInventory().getPrice();
         }
         if(total>350){
             throw new CustomException(ExceptionMessage.Patient_Exceeded_Price_Limit);
         }
     }
 
-    private void updateInventory(Medicine medicine, long amount) {
-        inventoryService.update(medicine.getId(),amount);
+    private void updateInventory(List<InventoryDto> inventoryDtos) {
+        inventoryDtos.forEach( inventoryDto -> {
+            inventoryService.update(inventoryDto.getInventory(),inventoryDto.getAmount());
+        });
     }
 
-    private boolean ValidatePrescriptionTimes(Useage useage,boolean isChronic) {
+    private boolean ValidatePrescriptionTimes(AddUsage addUsage,boolean isChronic) {
         String currentDate = String.valueOf(java.time.LocalDate.now().getYear());
         currentDate+="-";
         currentDate+=String.valueOf(java.time.LocalDate.now().getMonthValue());
 
-        if(useageRepository.useageTimes(useage.getPrescription().getId(),currentDate)==0 &&isChronic){
+        if(isChronic && useageRepository.useageTimes(addUsage.getPrescription().getId(),currentDate)==0){
             return true;
         }
-        if (!isChronic&&useageRepository.useageTimes(useage.getPrescription().getId(),currentDate)<2) {
+        if (!isChronic&&useageRepository.useageTimes(addUsage.getPrescription().getId(),currentDate)<2) {
             return true;
         }
         throw new CustomException(ExceptionMessage.Patient_Exceeded_Useage_Limit);
@@ -136,4 +129,5 @@ public class UseageService {
             }
         });
     }
+
 }

@@ -1,5 +1,6 @@
 package com.banhauniversity.sidalih.controller;
 
+import com.banhauniversity.sidalih.dto.AddUsage;
 import com.banhauniversity.sidalih.entity.Medicine;
 import com.banhauniversity.sidalih.entity.Useage;
 import com.banhauniversity.sidalih.repository.UseageRepository;
@@ -34,8 +35,8 @@ public class UseageController {
     }
 
     @PostMapping()
-    public Useage add(@RequestBody Useage useage){
-        return useageService.add(useage);
+    public Useage add(@RequestBody AddUsage addUsage){
+        return useageService.add(addUsage);
     }
 
     @PutMapping

@@ -27,4 +27,10 @@ public class Useage {
 
     @OneToMany(mappedBy = "useage")
     private List<UseageMedicine> useageMedicines;
+
+    public Useage(Date date, Prescription prescription, List<UseageMedicine> useageMedicines) {
+        this.date = date;
+        this.prescription = prescription;
+        this.useageMedicines = useageMedicines;
+    }
 }

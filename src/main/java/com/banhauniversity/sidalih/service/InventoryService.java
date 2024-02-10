@@ -2,6 +2,7 @@ package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.dto.MedicineStatus;
 import com.banhauniversity.sidalih.entity.Inventory;
+import com.banhauniversity.sidalih.entity.OrderMedicine;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.repository.InventoryRepository;
@@ -37,25 +38,21 @@ public class InventoryService {
         return inventoryRepository.medicineStatus(id);
     }
 
-    public void update(long id,long amount){
+    public void update(Inventory inventory,long amount){
         if (amount<0){
             throw new CustomException(ExceptionMessage.Not_Enough_Amount);
         }
+        inventory.setAmount(inventoryRepository.findById(inventory.getId()).get().getAmount()-amount);
 
-        List<Inventory> inventoryList = inventoryRepository.findByMedicineId(id);
-        Collections.sort(inventoryList, new Comparator<Inventory>() {
-            public int compare(Inventory o1, Inventory o2) {
-                return o1.getExpireDate().compareTo(o2.getExpireDate());
-            }
-        });
-
-        Inventory inventory = inventoryList.get(0);
-        inventory.setAmount(inventory.getAmount()-amount);
         inventoryRepository.save(inventory);
 
     }
 
     public List<MedicineStatus> inventoryOfItems(){
         return inventoryRepository.inventoryOfItems();
+    }
+
+    public Inventory findById(long id) {
+        return inventoryRepository.findById(id).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
     }
 }

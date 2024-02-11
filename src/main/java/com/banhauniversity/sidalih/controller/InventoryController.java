@@ -1,6 +1,7 @@
 package com.banhauniversity.sidalih.controller;
 
 import com.banhauniversity.sidalih.dto.MedicineStatus;
+import com.banhauniversity.sidalih.dto.Reports;
 import com.banhauniversity.sidalih.dto.Sales;
 import com.banhauniversity.sidalih.entity.Inventory;
 import com.banhauniversity.sidalih.entity.Medicine;
@@ -39,5 +40,10 @@ public class InventoryController {
     @GetMapping("/sales")
     public List<Sales> sales(@RequestParam int year, @RequestParam int month){
         return useageRepository.findMedicineAmountByMonthAndYear(month,year);
+    }
+
+    @GetMapping("/college")
+    public List<Reports> college(@RequestParam int year, @RequestParam int month){
+        return useageRepository.findCollegeSales(month,year);
     }
 }

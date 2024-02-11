@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS prescription_category
     CONSTRAINT prescription_category_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS public.prescription
+CREATE TABLE IF NOT EXISTS prescription
 (
     id bigint NOT NULL,
     category_id bigint NOT NULL,

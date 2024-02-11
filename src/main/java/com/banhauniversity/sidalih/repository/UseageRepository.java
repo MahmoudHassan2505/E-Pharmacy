@@ -1,6 +1,7 @@
 package com.banhauniversity.sidalih.repository;
 
 import com.banhauniversity.sidalih.dto.MedicineStatus;
+import com.banhauniversity.sidalih.dto.Reports;
 import com.banhauniversity.sidalih.dto.Sales;
 import com.banhauniversity.sidalih.entity.Useage;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -26,4 +27,12 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
     List<Sales> findMedicineAmountByMonthAndYear(@Param("month") int month, @Param("year") int year);
 
     List<Useage> findAllByUseageMedicinesMedicineName(String name);
+
+    @Query("SELECT new com.banhauniversity.sidalih.dto.Reports(pa.collegeName, COUNT(u.id)) " +
+            "FROM Useage u " +
+            "LEFT JOIN u.prescription pr " +
+            "LEFT JOIN pr.patient pa " +
+            "WHERE EXTRACT(MONTH FROM u.date) = :month AND EXTRACT(YEAR FROM u.date) = :year " +
+            "GROUP BY pa.collegeName")
+    List<Reports>findCollegeSales(@Param("month") int month, @Param("year") int year);
 }

@@ -2,7 +2,10 @@ package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.entity.Inventory;
 import com.banhauniversity.sidalih.entity.Notification;
+import com.banhauniversity.sidalih.entity.UseageMedicine;
 import com.banhauniversity.sidalih.repository.NotificationRepository;
+import com.banhauniversity.sidalih.repository.UseageMedicineRepository;
+import com.banhauniversity.sidalih.repository.UseageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,7 +21,7 @@ public class DailyTask {
     @Autowired private InventoryService inventoryService;
     @Autowired private NotificationRepository notificationRepository;
 
-    @Scheduled(cron = "0 30 17 * * ?")
+    @Scheduled(cron = "0 0 5 * * ?")
     public void executeDailyTask() {
         List<Inventory> inventoryList = inventoryService.findALl();
 
@@ -38,5 +41,18 @@ public class DailyTask {
                 }
             }
         });
+    }
+
+
+    @Scheduled(fixedDelay = 10000)
+    public void updateNotifications(){
+
+        inventoryService.inventoryOfItems().forEach(medicineStatus ->{
+            if(medicineStatus.getAmount()<=medicineStatus.getMedicine().getAlertamount() && notificationRepository.findByMedicine(medicineStatus.getMedicine()).isEmpty()){
+                notificationRepository.save(new Notification("أوشك علي النفاد",medicineStatus.getMedicine()));
+            }
+        } );
+
+
     }
 }

@@ -33,4 +33,36 @@ public class Useage {
         this.prescription = prescription;
         this.useageMedicines = useageMedicines;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Prescription getPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(Prescription prescription) {
+        this.prescription = prescription;
+    }
+
+    public List<UseageMedicine> getUseageMedicines() {
+        return useageMedicines;
+    }
+
+    public void setUseageMedicines(List<UseageMedicine> useageMedicines) {
+        this.useageMedicines = useageMedicines;
+    }
 }

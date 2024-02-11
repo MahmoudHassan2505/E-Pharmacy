@@ -11,6 +11,7 @@ import com.banhauniversity.sidalih.repository.UseageMedicineRepository;
 import com.banhauniversity.sidalih.repository.UseageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -47,16 +48,13 @@ public class UseageService {
 
         List<UseageMedicine> useageMedicines = new ArrayList<>();
 
-        Useage savedUseage = useageRepository.save(new Useage(addUsage.getDate(),addUsage.getPrescription(), useageMedicines));
+        Useage savedUseage = useageRepository.saveAndFlush(new Useage(addUsage.getDate(),addUsage.getPrescription(), useageMedicines));
 
         addUsage.getInventoryDto().forEach(inventoryDto -> {
-            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),savedUseage,inventoryDto.getInventory().getOrderMedicine().getMedicine(),inventoryDto.getInventory()));
+            useageMedicineRepository.saveAndFlush(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),savedUseage,inventoryDto.getInventory().getOrderMedicine().getMedicine(),inventoryDto.getInventory()));
             updateInventory(addUsage.getInventoryDto());
 
         });
-
-
-        updateNotifications(savedUseage.getId());
 
         return useageRepository.findById(savedUseage.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
     }
@@ -129,14 +127,6 @@ public class UseageService {
         return useageRepository.findAllByUseageMedicinesMedicineName(medicineName);
     }
 
-    private void updateNotifications(Long id) {
-        Useage useage = useageRepository.findById(id).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
-        System.out.println("hello3");
-        useage.getUseageMedicines().forEach((medicine)->{
-            if (medicine.getMedicine().getAlertamount() >= inventoryService.Status(medicine.getMedicine().getId()).getAmount()){
-                notificationRepository.save(new Notification("أوشك علي النفاد",medicine.getMedicine()));
-            }
-        });
-    }
+
 
 }

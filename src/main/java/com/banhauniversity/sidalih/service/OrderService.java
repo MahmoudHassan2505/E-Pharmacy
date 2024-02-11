@@ -6,6 +6,7 @@ import com.banhauniversity.sidalih.entity.OrderMedicine;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.repository.InventoryRepository;
+import com.banhauniversity.sidalih.repository.NotificationRepository;
 import com.banhauniversity.sidalih.repository.OrderMedicineRepository;
 import com.banhauniversity.sidalih.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -26,6 +27,8 @@ public class OrderService {
     OrderMedicineRepository orderMedicineRepository;
     @Autowired
     InventoryService inventoryService;
+
+    @Autowired private NotificationRepository notificationRepository;
 
     public List<Order> findAll(){
         return orderRepository.findAll();
@@ -55,6 +58,8 @@ public class OrderService {
         orderRepository.findById(savedOrder.getId()).get().getOrderMedicines().forEach((orderMedicine)->{
             inventoryService.add(Inventory.builder().orderMedicine(orderMedicine).amount(0).build());
         });
+
+        updateNotification();
         return order;
     }
 
@@ -93,6 +98,16 @@ public class OrderService {
 
         });
 
+        updateNotification();
+
         return orderRepository.findById(neworder.getId()).get();
+    }
+
+    public void updateNotification(){
+        notificationRepository.findAll().forEach(notification -> {
+            if (notification.getMedicine().getAlertamount()<inventoryRepository.medicineStatus(notification.getMedicine().getId()).getAmount()){
+                notificationRepository.deleteById(notification.getId());
+            }
+        });
     }
 }

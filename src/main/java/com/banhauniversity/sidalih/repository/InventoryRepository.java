@@ -18,13 +18,16 @@ public interface InventoryRepository extends JpaRepository<Inventory,Long> {
 
     List<Inventory> findAllByOrderMedicineMedicineBarcode(long barcode);
 
-    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.orderMedicine.medicine  , sum(x.amount)) from Inventory as x where x.orderMedicine.medicine.id =?1 group by x.orderMedicine.medicine")
+    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.orderMedicine.medicine  , sum(x.orderMedicine.amount-x.amount)) from Inventory as x where x.orderMedicine.medicine.id =?1 group by x.orderMedicine.medicine")
     MedicineStatus medicineStatus(long id);
 
-    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.orderMedicine.medicine  , sum(x.amount)) from Inventory as x group by x.orderMedicine.medicine")
+     // return selled items amount
+//    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.orderMedicine.medicine  , sum(x.amount)) from Inventory as x where x.orderMedicine.medicine.id =?1 group by x.orderMedicine.medicine")
+//    MedicineStatus medicineStatus(long id);
+
+    @Query("select new com.banhauniversity.sidalih.dto.MedicineStatus(x.orderMedicine.medicine  , sum(x.orderMedicine.amount-x.amount)) from Inventory as x group by x.orderMedicine.medicine")
     List<MedicineStatus> inventoryOfItems();
 
-    Inventory findByOrderMedicine(OrderMedicine orderMedicine);
+    Optional<Inventory> findByOrderMedicineId(long id);
 
-    void deleteByOrderMedicine(OrderMedicine orderMedicine);
 }

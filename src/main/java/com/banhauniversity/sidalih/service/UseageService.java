@@ -68,6 +68,16 @@ public class UseageService {
     }
 
     public boolean delete(long id){
+        Useage useage = useageRepository.findById(id).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
+
+        useage.getUseageMedicines().forEach(useageMedicine -> {
+            //update inventory before deleting
+            //------TODO-----------------
+
+
+            useageMedicineRepository.deleteById(useageMedicine.getId());
+        });
+
         useageRepository.deleteById(id);
         return true;
     }

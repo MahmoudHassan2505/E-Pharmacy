@@ -1,0 +1,25 @@
+
+V
+java:S3516q"9Refactor this method to not always return the same value.(Ş•´õ8éã²©Ù1
+Q
+java:S1611B"/Remove the parentheses around the "x" parameter(íÏ‚ùÿÿÿÿ8ïã²©Ù1
+N
+java:S1602I",Remove useless curly braces around statement(ÖŸÔïøÿÿÿÿ8ñã²©Ù1
+T
+java:S1135K"2Complete the task associated to this TODO comment.(Å¢ºÚıÿÿÿÿ8ñïÆ©Ù1
+o	java:S100V"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç½Á½ÿÿÿÿÿ8ğã²©Ù1
+\
+java:S1611W":Remove the parentheses around the "inventoryDto" parameter(¥÷´ÿÿÿÿÿ8ğã²©Ù1
+o	java:S100`"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êï§ùÿÿÿÿ8ğã²©Ù1
+N
+java:S1602l",Remove useless curly braces around statement(‰¸á­úÿÿÿÿ8ˆèµ©Ù1
+j	java:S100q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş•´õ8ñã²©Ù1
+[	java:S106…"9Replace this use of System.out or System.err by a logger.(ÈÁšóüÿÿÿÿ8óã²©Ù1
+Y
+java:S1611†"6Remove the parentheses around the "medicine" parameter(×Èñ§ùÿÿÿÿ8óã²©Ù1
+G
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ü–¶©Ù1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ü–¶©Ù1
+N
+java:S1128"1Remove this unused import 'java.util.Comparator'.(î¹ó¹8ı–¶©Ù1

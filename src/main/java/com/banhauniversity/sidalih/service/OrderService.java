@@ -8,9 +8,9 @@ import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.repository.InventoryRepository;
 import com.banhauniversity.sidalih.repository.OrderMedicineRepository;
 import com.banhauniversity.sidalih.repository.OrderRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,20 +63,35 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
-    @Transactional
     public Order update(Order neworder){
-        Order oldOrder = orderRepository.findById(neworder.getId()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+        Order oldOrder = orderRepository.findById(neworder.getId()).orElseThrow(()-> new CustomException(ExceptionMessage.ID_Not_Found));
+
         orderRepository.save(neworder);
+
+        //find deleted item from updating
+        oldOrder.getOrderMedicines().removeIf(orderMedicine -> {
+            for (OrderMedicine newOrderMedicine: neworder.getOrderMedicines()) {
+                if(newOrderMedicine.getId()==orderMedicine.getId()){
+                    return true;
+                }
+            }
+            return false;
+        });
+
         oldOrder.getOrderMedicines().forEach(orderMedicine -> {
-            inventoryRepository.deleteByOrderMedicine(orderMedicine);
+            inventoryService.deleteByOrderMedicineId(orderMedicine.getId());
             orderMedicineRepository.deleteById(orderMedicine.getId());
         });
 
-        neworder.getOrderMedicines().forEach(orderMedicine -> {
-            orderMedicine.setOrder(neworder);
-            orderMedicineRepository.save(orderMedicine);
-        });
+        neworder.getOrderMedicines().forEach( orderMedicine -> {
+                orderMedicine.setOrder(neworder);
+                OrderMedicine newOrderMedicine = orderMedicineRepository.save(orderMedicine);
 
+                if(inventoryService.findByOrderMedicineId(orderMedicine.getId()).isEmpty()){
+                    inventoryService.add(Inventory.builder().orderMedicine(newOrderMedicine).amount(0).build());
+                }
+
+        });
 
         return orderRepository.findById(neworder.getId()).get();
     }

@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -55,5 +56,17 @@ public class InventoryService {
 
     public List<Inventory> findByMedicineId(long id) {
         return inventoryRepository.findAllByOrderMedicineMedicineBarcode(id);
+    }
+
+    public void deleteByOrderMedicineId(long id){
+        deleteById(inventoryRepository.findByOrderMedicineId(id).get().getId());
+    }
+
+    public void deleteById(long id){
+        inventoryRepository.deleteById(id);
+    }
+
+    public Optional<Inventory> findByOrderMedicineId(long id){
+        return inventoryRepository.findByOrderMedicineId(id);
     }
 }

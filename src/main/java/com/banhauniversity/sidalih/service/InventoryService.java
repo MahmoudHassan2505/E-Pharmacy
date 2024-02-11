@@ -2,13 +2,18 @@ package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.dto.MedicineStatus;
 import com.banhauniversity.sidalih.entity.Inventory;
+import com.banhauniversity.sidalih.entity.Notification;
 import com.banhauniversity.sidalih.entity.OrderMedicine;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.repository.InventoryRepository;
+import com.banhauniversity.sidalih.repository.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -19,6 +24,8 @@ import java.util.Optional;
 public class InventoryService {
 
     @Autowired private InventoryRepository inventoryRepository;
+
+
 
     public List<Inventory> findALl(){
         return inventoryRepository.findAll();

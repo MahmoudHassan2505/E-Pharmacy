@@ -50,7 +50,7 @@ public class UseageService {
         Useage savedUseage = useageRepository.save(new Useage(addUsage.getDate(),addUsage.getPrescription(), useageMedicines));
 
         addUsage.getInventoryDto().forEach(inventoryDto -> {
-            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),savedUseage,inventoryDto.getInventory().getOrderMedicine().getMedicine()));
+            useageMedicineRepository.save(new UseageMedicine(inventoryDto.getAmountNeeded(),inventoryDto.getInventory().getOrderMedicine().getPrice(),savedUseage,inventoryDto.getInventory().getOrderMedicine().getMedicine(),inventoryDto.getInventory()));
             updateInventory(addUsage.getInventoryDto());
 
         });
@@ -72,8 +72,9 @@ public class UseageService {
 
         useage.getUseageMedicines().forEach(useageMedicine -> {
             //update inventory before deleting
-            //------TODO-----------------
-
+            Inventory inventory = inventoryRepository.findById(useageMedicine.getInventory().getId()).get();
+            inventory.setAmount(inventory.getAmount()- useageMedicine.getAmount());
+            inventoryRepository.save(inventory);
 
             useageMedicineRepository.deleteById(useageMedicine.getId());
         });

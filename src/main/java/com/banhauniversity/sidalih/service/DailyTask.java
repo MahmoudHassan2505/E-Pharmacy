@@ -2,7 +2,6 @@ package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.entity.Inventory;
 import com.banhauniversity.sidalih.entity.Notification;
-import com.banhauniversity.sidalih.repository.InventoryRepository;
 import com.banhauniversity.sidalih.repository.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

@@ -2,6 +2,7 @@ package com.banhauniversity.sidalih.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 
 @Data
@@ -29,10 +30,15 @@ public class UseageMedicine {
     @JoinColumn(name = "medicine_id")
     private Medicine medicine;
 
-    public UseageMedicine(long amount, long price, Useage useage, Medicine medicine) {
+    @ManyToOne
+    @JoinColumn(name = "inventory_id")
+    private Inventory inventory;
+
+    public UseageMedicine(long amount, long price, Useage useage, Medicine medicine, Inventory inventory) {
         this.amount = amount;
         this.price = price;
         this.useage = useage;
         this.medicine = medicine;
+        this.inventory = inventory;
     }
 }

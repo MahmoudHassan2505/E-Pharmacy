@@ -17,8 +17,6 @@ v
 Fsrc/main/java/com/banhauniversity/sidalih/entity/MedicineCategory.java,4\e\4ecbc765bbbc79d8d9c353f897e483593af2d8a2
 „
 Tsrc/main/java/com/banhauniversity/sidalih/repository/MedicineCategoryRepository.java,d\8\d872ac55a9bd92f3d4d18018481d9f9ab88e4a1d
-v
-Fsrc/main/java/com/banhauniversity/sidalih/security/SecurityConfig.java,4\9\498b6101c4e13533707adfa06f5127e0a19f6db1
 |
 Lsrc/main/java/com/banhauniversity/sidalih/controller/SupplierController.java,c\b\cbdd3955372da15e5b8eae2bd7ccbbac6cbfbb9d
 |

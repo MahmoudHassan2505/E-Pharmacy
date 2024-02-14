@@ -1,5 +1,6 @@
 package com.banhauniversity.sidalih;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +17,11 @@ import java.util.List;
 @EnableScheduling
 public class SidalihApplication {
 
+	@Value("react")
+	private String react;
+
 	public static void main(String[] args) {
+
 		SpringApplication.run(SidalihApplication.class, args);
 	}
 
@@ -24,7 +29,7 @@ public class SidalihApplication {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173","http://127.0.0.1:5173"));
+		corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173","http://127.0.0.1:5173", react));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 				"Access-Control-Request-Method", "Access-Control-Request-Headers"));

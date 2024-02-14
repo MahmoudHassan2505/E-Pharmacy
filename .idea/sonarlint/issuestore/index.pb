@@ -111,5 +111,3 @@ y
 Isrc/main/java/com/banhauniversity/sidalih/controller/OrderController.java,f\a\fac39eec0daf7ea47c8b2e7ba13124e2872619a7
 s
 Csrc/main/java/com/banhauniversity/sidalih/service/OrderService.java,9\5\95ec2e680f4f39455afb80a76f9b93a61cc06d96
-q
-Asrc/main/java/com/banhauniversity/sidalih/SidalihApplication.java,8\a\8a1fa4312be94af12cc16235ba28988155f556f6

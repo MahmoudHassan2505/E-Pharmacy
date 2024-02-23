@@ -18,15 +18,15 @@ import java.io.IOException;
 @Slf4j
 public class ChatGPTServices {
 
-    private String OPEN_AI_URL = "https://api.openai.com/v1/chat/completions";
-    private String OPEN_AI_KEY = "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";
+    private String OPEN_AI_URL = "https://api.openai.com/v1/completions";
+    private String OPEN_AI_KEY = "Bearer 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";
 
     public String processSearch(Request request) throws IOException {
         String url = OPEN_AI_URL;
         HttpPost httpPost = new HttpPost(url);
 
         httpPost.addHeader("Content-Type", "application/json");
-        httpPost.addHeader("Authorization", "Bearer " + OPEN_AI_KEY);
+        httpPost.addHeader("Authorization", OPEN_AI_KEY);
 
         Gson gson = new Gson();
         ChatGPTRequest chatGPTRequest = new ChatGPTRequest(request.getQuery());

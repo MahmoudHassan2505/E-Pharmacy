@@ -1,0 +1,20 @@
+
+O
+java:S3516p"9Refactor this method to not always return the same value.(Ş•´õ
+J
+java:S1611@"/Remove the parentheses around the "x" parameter(íÏ‚ùÿÿÿÿ
+h	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç½Á½ÿÿÿÿÿ
+U
+java:S1611V":Remove the parentheses around the "inventoryDto" parameter(¥÷´ÿÿÿÿÿ
+h	java:S100_"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êï§ùÿÿÿÿ
+G
+java:S1602k",Remove useless curly braces around statement(‰¸á­úÿÿÿÿ
+c	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş•´õ
+p
+java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ğùçøùÿÿÿÿ
+@
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê
+M
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ
+G
+java:S1128"1Remove this unused import 'java.util.Comparator'.(î¹ó¹

@@ -21,7 +21,17 @@ public class Medicine {
     private String activeingredient;
     private String manufacturer;
     private long alertamount;
-    private Date alertexpired;
+    private long alertexpired;
+
+    private String unit;
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
@@ -115,11 +125,11 @@ public class Medicine {
         this.medicineCategory = medicineCategory;
     }
 
-    public Date getAlertexpired() {
+    public long getAlertexpired() {
         return alertexpired;
     }
 
-    public void setAlertexpired(Date alertexpired) {
+    public void setAlertexpired(long alertexpired) {
         this.alertexpired = alertexpired;
     }
 

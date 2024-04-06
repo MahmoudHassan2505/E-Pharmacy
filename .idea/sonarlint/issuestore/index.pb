@@ -105,7 +105,5 @@ y
 Isrc/main/java/com/banhauniversity/sidalih/controller/OrderController.java,f\a\fac39eec0daf7ea47c8b2e7ba13124e2872619a7
 s
 Csrc/main/java/com/banhauniversity/sidalih/service/OrderService.java,9\5\95ec2e680f4f39455afb80a76f9b93a61cc06d96
-n
->src/main/java/com/banhauniversity/sidalih/entity/Medicine.java,a\3\a346aad917f0cb4240ea5d313a77e21e3884c4b4
 r
 Bsrc/main/java/com/banhauniversity/sidalih/entity/Notification.java,b\7\b702b0dcd09fad9d5d94a21cc166d7c821b87d10

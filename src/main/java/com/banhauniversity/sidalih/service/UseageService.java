@@ -2,6 +2,7 @@ package com.banhauniversity.sidalih.service;
 
 import com.banhauniversity.sidalih.dto.AddUsage;
 import com.banhauniversity.sidalih.dto.InventoryDto;
+import com.banhauniversity.sidalih.dto.UseagesDTO;
 import com.banhauniversity.sidalih.entity.*;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
@@ -32,7 +33,14 @@ public class UseageService {
     @Autowired private InventoryRepository inventoryRepository;
 
     public List<Useage> findAll(){
-        return useageRepository.findAll();
+
+        List<Useage> useages = useageRepository.findAll();
+//        return useages.stream()
+//                .map(useage -> UseagesDTO.builder().useage(useage).totalPrice(
+//
+//                ).build())
+//                .collect(Collectors.toList());
+        return useages;
     }
 
     public Useage findById(long id){

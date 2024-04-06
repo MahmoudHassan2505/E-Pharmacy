@@ -130,7 +130,7 @@ public class UseageService {
         String currentDate = String.valueOf(java.time.LocalDate.now().getYear());
         currentDate+="-";
         currentDate+=String.valueOf(java.time.LocalDate.now().getMonthValue());
-        List<Useage> patientUseageDetails = useageRepository.findAllByPrescriptionPatientNational_id(addUsage.getPrescription().getPatient().getNational_id());
+        List<Useage> patientUseageDetails = useageRepository.findAllByPrescriptionPatientNationalid(addUsage.getPrescription().getPatient().getNationalid());
 
         if(isChronic){
             //for chronic

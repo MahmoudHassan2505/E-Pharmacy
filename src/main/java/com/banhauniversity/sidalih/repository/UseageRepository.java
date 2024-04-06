@@ -37,5 +37,5 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
             "GROUP BY pa.collegeName")
     List<Reports>findCollegeSales(@Param("month") int month, @Param("year") int year);
 
-    List<Useage> findAllByPrescriptionPatientNational_id(long id);
+    List<Useage> findAllByPrescriptionPatientNationalid(long id);
 }

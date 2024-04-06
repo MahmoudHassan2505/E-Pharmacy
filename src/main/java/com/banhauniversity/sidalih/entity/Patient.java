@@ -16,7 +16,8 @@ import java.util.List;
 public class Patient {
 
     @Id
-    private long national_id;
+    @Column(name = "national_id")
+    private long nationalid;
     private String phone_number;
     private long student_id;
     private String name;

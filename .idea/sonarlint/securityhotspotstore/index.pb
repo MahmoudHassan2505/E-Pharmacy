@@ -9,12 +9,8 @@ Bsrc/main/java/com/banhauniversity/sidalih/entity/Notification.java,b\7\b702b0d
 Ksrc/main/java/com/banhauniversity/sidalih/controller/PatientController.java,3\8\38685c09aaec1529f5a90511c1b1d05ecc8d4cf0
 €
 Psrc/main/java/com/banhauniversity/sidalih/controller/PrescriptionController.java,0\4\043c8d20cff0f6f022e3d8d19550840f4bda1b00
-r
-Bsrc/main/java/com/banhauniversity/sidalih/entity/Prescription.java,7\0\708ed5fbae9b21d80fb9a4ac180f58a2e49668b2
 z
 Jsrc/main/java/com/banhauniversity/sidalih/entity/PrescriptionCategory.java,2\e\2e47ea0970397a7dec4be5c2372ddfcbd94378c7
-z
-Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1
 y
 Isrc/main/java/com/banhauniversity/sidalih/exception/ExceptionMessage.java,7\c\7cab361d463d90e5a8092dcc8c41cb49d00d93b2
 q

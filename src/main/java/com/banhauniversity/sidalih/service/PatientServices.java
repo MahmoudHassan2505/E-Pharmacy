@@ -20,14 +20,14 @@ public class PatientServices {
     }
 
     public Patient add(Patient patient){
-        patientRepository.findById(patient.getNational_id()).ifPresent(a -> {
+        patientRepository.findById(patient.getNationalid()).ifPresent(a -> {
           throw new CustomException(ExceptionMessage.ID_is_Exist);
         });
         return patientRepository.save(patient);
     }
 
     public Patient update(Patient patient){
-        patientRepository.findById(patient.getNational_id()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+        patientRepository.findById(patient.getNationalid()).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
 
         return patientRepository.save(patient);
     }

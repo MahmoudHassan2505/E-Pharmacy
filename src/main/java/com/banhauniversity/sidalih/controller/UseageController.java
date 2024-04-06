@@ -26,7 +26,7 @@ public class UseageController {
     }
 
     @GetMapping("/{id}")
-    public Useage findById(@PathVariable long id){
+    public UseagesDTO findById(@PathVariable long id){
         return useageService.findById(id);
     }
 

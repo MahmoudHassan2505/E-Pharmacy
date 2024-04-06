@@ -1,0 +1,7 @@
+
+J
+java:S1141*"5Extract this nested try block into a separate method.(Œ¨ŒV
+p	java:S116"VRename this field "OPEN_AI_URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¨ÖÜøÿÿÿÿ
+p	java:S116"VRename this field "OPEN_AI_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•‰‡ìüÿÿÿÿ
+D
+java:S1874*"/Remove this use of "execute"; it is deprecated.(Œ¨ŒV

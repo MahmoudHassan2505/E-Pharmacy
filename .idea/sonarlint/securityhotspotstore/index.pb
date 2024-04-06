@@ -131,8 +131,6 @@ s
 Csrc/main/java/com/banhauniversity/sidalih/entity/OrderMedicine.java,7\4\74d1c5d9154132e141f18fd0e7798b4e8857d101
 z
 Jsrc/main/java/com/banhauniversity/sidalih/service/NotificationService.java,c\c\cceeb3ce8edfa9e5b6d8d6477f4f2d4df39e8afc
-n
->src/main/java/com/banhauniversity/sidalih/entity/Medicine.java,a\3\a346aad917f0cb4240ea5d313a77e21e3884c4b4
 s
 Csrc/main/java/com/banhauniversity/sidalih/service/OrderService.java,9\5\95ec2e680f4f39455afb80a76f9b93a61cc06d96
 p

@@ -47,8 +47,13 @@ public class UseageService {
         return useagesDTOS;
     }
 
-    public Useage findById(long id){
-        return useageRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+    public UseagesDTO findById(long id){
+        int totalPrice=0;
+        Useage useage = useageRepository.findById(id).orElseThrow(()->new CustomException(ExceptionMessage.ID_Not_Found));
+        for (UseageMedicine useageMedicine:useage.getUseageMedicines()) {
+            totalPrice+= useageMedicine.getPrice()* useageMedicine.getAmount();
+        }
+        return new UseagesDTO(useage.getId(),useage.getDate(),useage.getPrescription(),useage.getUseageMedicines(),totalPrice);
     }
 
     public Useage add(AddUsage addUsage){

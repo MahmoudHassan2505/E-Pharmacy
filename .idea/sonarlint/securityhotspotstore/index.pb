@@ -143,5 +143,3 @@ x
 Hsrc/main/java/com/banhauniversity/sidalih/controller/UserController.java,d\4\d4a608f8c5054cb6d7c57b4cb457459e29a847b0
 o
 ?src/main/java/com/banhauniversity/sidalih/entity/Authority.java,d\1\d16a45ff1df9c84a05dc1751521136070b7e9304
-n
->src/main/java/com/banhauniversity/sidalih/entity/Medicine.java,a\3\a346aad917f0cb4240ea5d313a77e21e3884c4b4

@@ -29,19 +29,22 @@ public class UseageService {
     @Autowired private UseageRepository useageRepository;
     @Autowired private UseageMedicineRepository useageMedicineRepository;
     @Autowired private InventoryService inventoryService;
-    @Autowired private NotificationRepository notificationRepository;
     @Autowired private InventoryRepository inventoryRepository;
 
-    public List<Useage> findAll(){
+    public List<UseagesDTO> findAll(){
 
         List<Useage> useages = useageRepository.findAll();
-        return useages.stream()
-                .map(useage -> {
-                    UseagesDTO.builder().useage(useage).totalPrice(
+        int totalPrice;
+        List<UseagesDTO> useagesDTOS = new ArrayList<>();
 
-                    ).build()
-                })
-                .collect(Collectors.toList());
+        for (Useage useage:useages) {
+            totalPrice=0;
+            for (UseageMedicine useageMedicine:useage.getUseageMedicines()) {
+                totalPrice+= useageMedicine.getPrice()* useageMedicine.getAmount();
+            }
+            useagesDTOS.add(new UseagesDTO(useage.getId(),useage.getDate(),useage.getPrescription(),useage.getUseageMedicines(),totalPrice));
+        }
+        return useagesDTOS;
     }
 
     public Useage findById(long id){

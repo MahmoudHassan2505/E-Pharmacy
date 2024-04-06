@@ -1,6 +1,7 @@
 package com.banhauniversity.sidalih.controller;
 
 import com.banhauniversity.sidalih.dto.AddUsage;
+import com.banhauniversity.sidalih.dto.UseagesDTO;
 import com.banhauniversity.sidalih.entity.Medicine;
 import com.banhauniversity.sidalih.entity.Useage;
 import com.banhauniversity.sidalih.repository.UseageRepository;
@@ -20,7 +21,7 @@ public class UseageController {
     @Autowired private UseageService useageService;
 
     @GetMapping
-    public List<Useage> findAll(){
+    public List<UseagesDTO> findAll(){
         return useageService.findAll();
     }
 

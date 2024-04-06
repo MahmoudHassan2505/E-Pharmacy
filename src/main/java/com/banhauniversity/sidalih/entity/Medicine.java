@@ -22,8 +22,8 @@ public class Medicine {
     private String manufacturer;
     private long alertamount;
     private long alertexpired;
-
     private String unit;
+
 
     public String getUnit() {
         return unit;

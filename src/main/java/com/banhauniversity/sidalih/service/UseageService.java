@@ -35,12 +35,13 @@ public class UseageService {
     public List<Useage> findAll(){
 
         List<Useage> useages = useageRepository.findAll();
-//        return useages.stream()
-//                .map(useage -> UseagesDTO.builder().useage(useage).totalPrice(
-//
-//                ).build())
-//                .collect(Collectors.toList());
-        return useages;
+        return useages.stream()
+                .map(useage -> {
+                    UseagesDTO.builder().useage(useage).totalPrice(
+
+                    ).build()
+                })
+                .collect(Collectors.toList());
     }
 
     public Useage findById(long id){

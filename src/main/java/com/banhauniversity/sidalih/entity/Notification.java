@@ -18,13 +18,15 @@ public class Notification {
     private long id;
 
     private String message;
+    private long orderid;
 
     @ManyToOne()
     @JoinColumn(name = "medicine_id")
     private Medicine medicine;
 
-    public Notification(String message, Medicine medicine) {
+    public Notification(String message, long orderid, Medicine medicine) {
         this.message = message;
+        this.orderid = orderid;
         this.medicine = medicine;
     }
 }

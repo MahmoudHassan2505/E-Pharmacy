@@ -10,5 +10,7 @@ import java.util.Optional;
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification,Long> {
 
-    Optional<Notification> findByMedicine(Medicine medicine);
+    Optional<Notification> findByMedicineAndMessage(Medicine medicine,String message);
+
+    Optional<Notification>findByOrderid(long orderid);
 }

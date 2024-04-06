@@ -14,10 +14,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UseageService {
@@ -44,7 +47,9 @@ public class UseageService {
 
         ValidateMedicine(addUsage);
         ValidatePrescription(addUsage);
-        ValidatePrescriptionTimes(addUsage,isChronic);
+        if (!ValidatePrescriptionTimes(addUsage,isChronic)){
+            throw new CustomException(ExceptionMessage.Patient_Exceeded_Times);
+        }
 
         List<UseageMedicine> useageMedicines = new ArrayList<>();
 
@@ -113,14 +118,35 @@ public class UseageService {
         String currentDate = String.valueOf(java.time.LocalDate.now().getYear());
         currentDate+="-";
         currentDate+=String.valueOf(java.time.LocalDate.now().getMonthValue());
+        List<Useage> patientUseageDetails = useageRepository.findAllByPrescriptionPatientNational_id(addUsage.getPrescription().getPatient().getNational_id());
 
-        if(isChronic && useageRepository.useageTimes(addUsage.getPrescription().getId(),currentDate)==0){
-            return true;
+        if(isChronic){
+            //for chronic
+            int useageTime = (int)patientUseageDetails.stream().filter(useage -> useage.getPrescription().getPrsPrescriptionCategory().getId()==1).filter(useage -> {
+                LocalDate useageDate = useage.getDate().toLocalDate();
+                YearMonth currentYearMonth = YearMonth.now();
+                YearMonth useageYearMonth = YearMonth.of(useageDate.getYear(), useageDate.getMonth());
+                return currentYearMonth.equals(useageYearMonth);
+            }).count();
+
+            if (useageTime!=0)
+                return false;
+            else
+                return true;
+        }else {
+            //for non-chronic
+            int useageTime = (int)patientUseageDetails.stream().filter(useage -> useage.getPrescription().getPrsPrescriptionCategory().getId()==2).filter(useage -> {
+                LocalDate useageDate = useage.getDate().toLocalDate();
+                YearMonth currentYearMonth = YearMonth.now();
+                YearMonth useageYearMonth = YearMonth.of(useageDate.getYear(), useageDate.getMonth());
+                return currentYearMonth.equals(useageYearMonth);
+            }).count();
+
+            if (useageTime>2)
+                return false;
+            else
+                return true;
         }
-        if (!isChronic&&useageRepository.useageTimes(addUsage.getPrescription().getId(),currentDate)<2) {
-            return true;
-        }
-        throw new CustomException(ExceptionMessage.Patient_Exceeded_Useage_Limit);
     }
 
     public List<Useage> findByMedicineName(String medicineName) {

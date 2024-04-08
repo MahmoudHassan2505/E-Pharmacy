@@ -45,8 +45,6 @@ Dsrc/main/java/com/banhauniversity/sidalih/entity/CollegeUseages.java,a\4\a454e
 Ksrc/main/java/com/banhauniversity/sidalih/entity/CollegeUseageMedicine.java,3\a\3ac7440f8f056409fa10296528ee9ecb07773e78
 w
 Gsrc/main/java/com/banhauniversity/sidalih/service/InventoryService.java,c\a\ca52ea198161a01a195dbd67c0e6af9257976ff1
-{
-Ksrc/main/java/com/banhauniversity/sidalih/service/CollegeUseageService.java,7\2\729a477269a5c932e290a8c638dd30cc660f69c7
 }
 Msrc/main/java/com/banhauniversity/sidalih/controller/DashboardController.java,8\d\8d26f7aa46abcfa11bb85e68e62506929461f59b
 {
@@ -55,3 +53,15 @@ Ksrc/main/java/com/banhauniversity/sidalih/controller/DiseaseController.java,0\
 Psrc/main/java/com/banhauniversity/sidalih/repository/PrescriptionRepository.java,5\f\5f2c56e6cc460e9453bd91cefd29c0337af5cf9d
 €
 Psrc/main/java/com/banhauniversity/sidalih/controller/PrescriptionController.java,0\4\043c8d20cff0f6f022e3d8d19550840f4bda1b00
+y
+Isrc/main/java/com/banhauniversity/sidalih/exception/ExceptionMessage.java,7\c\7cab361d463d90e5a8092dcc8c41cb49d00d93b2
+x
+Hsrc/main/java/com/banhauniversity/sidalih/controller/UserController.java,d\4\d4a608f8c5054cb6d7c57b4cb457459e29a847b0
+}
+Msrc/main/java/com/banhauniversity/sidalih/controller/InventoryController.java,0\c\0caf0fd047c30b864407a4197ebee262c5660607
+m
+=src/main/java/com/banhauniversity/sidalih/entity/Patient.java,d\3\d3cd83ffcda19424d1187c20e9378adbd22a26b0
+r
+Bsrc/main/java/com/banhauniversity/sidalih/entity/Prescription.java,7\0\708ed5fbae9b21d80fb9a4ac180f58a2e49668b2
+l
+<src/main/java/com/banhauniversity/sidalih/entity/Useage.java,8\8\88ac8f468a6b3860c296e4e7ca1001ff850498fa

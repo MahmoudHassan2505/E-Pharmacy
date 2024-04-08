@@ -35,4 +35,9 @@ public class CollegeUseageController {
         collegeUseageService.delete(collegeUseages.getId());
         return collegeUseageService.add(collegeUseages);
     }
+
+    @GetMapping("/{id}")
+    public CollegeUseagesDto findById(@PathVariable long id){
+        return collegeUseageService.findById(id);
+    }
 }

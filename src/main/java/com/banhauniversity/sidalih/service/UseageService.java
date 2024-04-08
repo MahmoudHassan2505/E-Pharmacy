@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -168,6 +169,19 @@ public class UseageService {
 
     public List<Useage> findByMedicineName(String medicineName) {
         return useageRepository.findAllByUseageMedicinesMedicineName(medicineName);
+    }
+
+    public List<Useage> findAllByCollegeNameAndDate(String dateString,String collegeName){
+
+       try {
+           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+           java.util.Date date = sdf.parse(dateString);
+           java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+           return useageRepository.findAllByDateAndPrescriptionPatientCollegeName(sqlDate,collegeName);
+       } catch (Exception e){
+           throw new CustomException(ExceptionMessage.Not_Valid_Date);
+       }
     }
 
 

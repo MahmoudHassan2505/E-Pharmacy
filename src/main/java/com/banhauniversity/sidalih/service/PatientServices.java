@@ -43,4 +43,9 @@ public class PatientServices {
     public List<Patient> findByType(boolean isChronic) {
         return patientRepository.findAllByChronic(isChronic);
     }
+    public List<Patient> findByCollegeName(String collegeName) {
+        return patientRepository.findAllByCollegeName(collegeName);
+    }
+
+
 }

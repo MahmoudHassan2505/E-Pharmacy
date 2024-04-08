@@ -11,4 +11,6 @@ import java.util.List;
 public interface PatientRepository extends JpaRepository<Patient,Long> {
 
     List<Patient> findAllByChronic(boolean chronic);
+
+    List<Patient> findAllByCollegeName(String collegeName);
 }

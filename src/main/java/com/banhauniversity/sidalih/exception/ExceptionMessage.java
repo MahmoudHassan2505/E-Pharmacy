@@ -12,7 +12,8 @@ public enum ExceptionMessage {
     CANNOT_CREATE_USER("can't create User"),
     CANNOT_DELETE_THIS_MEDICINE("this mnedicine is already used"),
     Not_Enough_Amount("not Enough amount"),
-    Patient_Exceeded_Times("patient exceeded Useage times");
+    Patient_Exceeded_Times("patient exceeded Useage times"),
+    Not_Valid_Date("Not a valid Date");
 
     String message;
     ExceptionMessage(String message){

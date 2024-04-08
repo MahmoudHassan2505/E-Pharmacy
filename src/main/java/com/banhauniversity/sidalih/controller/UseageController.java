@@ -50,4 +50,9 @@ public class UseageController {
         useageService.delete(id);
         return true;
     }
+
+    @GetMapping("/college")
+    public List<Useage> findAllByCollegeNameAndDate(@RequestParam("date") String date,@RequestParam("collegeName") String collegeName){
+        return useageService.findAllByCollegeNameAndDate(date,collegeName);
+    }
 }

@@ -1,13 +1,8 @@
 package com.banhauniversity.sidalih.dto;
 
 import com.banhauniversity.sidalih.entity.Prescription;
-import com.banhauniversity.sidalih.entity.Useage;
 import com.banhauniversity.sidalih.entity.UseageMedicine;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.*;
-
 import java.sql.Date;
 import java.util.List;
 

@@ -47,4 +47,9 @@ public class PatientController {
         patientServices.delete(id);
         return true;
     }
+
+    @GetMapping("/{collegeName}")
+    public List<Patient> collegeName(@PathVariable String collegeName){
+        return patientServices.findByCollegeName(collegeName);
+    }
 }

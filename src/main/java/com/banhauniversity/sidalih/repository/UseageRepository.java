@@ -38,4 +38,6 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
     List<Reports>findCollegeSales(@Param("month") int month, @Param("year") int year);
 
     List<Useage> findAllByPrescriptionPatientNationalid(long id);
+
+    List<Useage> findAllByDateAndPrescriptionPatientCollegeName(Date date,String collegeName);
 }

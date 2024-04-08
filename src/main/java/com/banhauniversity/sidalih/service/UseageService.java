@@ -171,17 +171,12 @@ public class UseageService {
         return useageRepository.findAllByUseageMedicinesMedicineName(medicineName);
     }
 
-    public List<Useage> findAllByCollegeNameAndDate(String dateString,String collegeName){
+    public List<Useage> findAllByCollegeNameAndDate(String collegeName,int month,int year){
 
-       try {
-           SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-           java.util.Date date = sdf.parse(dateString);
-           java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-           return useageRepository.findAllByDateAndPrescriptionPatientCollegeName(sqlDate,collegeName);
-       } catch (Exception e){
-           throw new CustomException(ExceptionMessage.Not_Valid_Date);
-       }
+
+           return useageRepository.findAllByCollegeNameAndMonthAndYear(collegeName,month,year);
+
     }
 
 

@@ -39,5 +39,14 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
 
     List<Useage> findAllByPrescriptionPatientNationalid(long id);
 
-    List<Useage> findAllByDateAndPrescriptionPatientCollegeName(Date date,String collegeName);
+    @Query("SELECT u " +
+            "FROM Useage u " +
+            "LEFT JOIN u.prescription pr " +
+            "LEFT JOIN pr.patient pa " +
+            "WHERE EXTRACT(MONTH FROM u.date) = :month AND EXTRACT(YEAR FROM u.date) = :year AND pa.collegeName = :collegeName")
+    List<Useage> findAllByCollegeNameAndMonthAndYear(
+            @Param("collegeName") String collegeName,
+            @Param("month") int month,
+            @Param("year") int year
+    );
 }

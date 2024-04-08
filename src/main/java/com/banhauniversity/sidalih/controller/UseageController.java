@@ -52,7 +52,7 @@ public class UseageController {
     }
 
     @GetMapping("/college")
-    public List<Useage> findAllByCollegeNameAndDate(@RequestParam("date") String date,@RequestParam("collegeName") String collegeName){
-        return useageService.findAllByCollegeNameAndDate(date,collegeName);
+    public List<Useage> findAllByCollegeNameAndDate(@RequestParam("collegeName") String collegeName,@RequestParam("month") int month,@RequestParam("year") int year){
+        return useageService.findAllByCollegeNameAndDate(collegeName,month,year);
     }
 }

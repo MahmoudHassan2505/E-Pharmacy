@@ -33,8 +33,6 @@ t
 Dsrc/main/java/com/banhauniversity/sidalih/entity/UseageMedicine.java,9\1\91881b00fb6e18f3cfa2c36c73cf9b20ee3a87f8
 o
 ?src/main/java/com/banhauniversity/sidalih/dto/InventoryDto.java,1\2\1278d2656da556f0741607a2d733966b788e0a08
-m
-=src/main/java/com/banhauniversity/sidalih/entity/Patient.java,d\3\d3cd83ffcda19424d1187c20e9378adbd22a26b0
 {
 Ksrc/main/java/com/banhauniversity/sidalih/repository/PatientRepository.java,7\6\76b84d86350048e79aff432d47b817bb70eadf79
 {
@@ -45,8 +43,6 @@ t
 Dsrc/main/java/com/banhauniversity/sidalih/entity/CollegeUseages.java,a\4\a454ecc2deb2294b9d5846a5df413fccdfcc973e
 {
 Ksrc/main/java/com/banhauniversity/sidalih/entity/CollegeUseageMedicine.java,3\a\3ac7440f8f056409fa10296528ee9ecb07773e78
-Å
-Qsrc/main/java/com/banhauniversity/sidalih/controller/CollegeUseageController.java,b\a\ba0c58fc4fd34153259f23154b4a4e3b5a4c34f9
 w
 Gsrc/main/java/com/banhauniversity/sidalih/service/InventoryService.java,c\a\ca52ea198161a01a195dbd67c0e6af9257976ff1
 {
@@ -55,15 +51,7 @@ Ksrc/main/java/com/banhauniversity/sidalih/service/CollegeUseageService.java,7\
 Msrc/main/java/com/banhauniversity/sidalih/controller/DashboardController.java,8\d\8d26f7aa46abcfa11bb85e68e62506929461f59b
 {
 Ksrc/main/java/com/banhauniversity/sidalih/controller/DiseaseController.java,0\b\0b62ef8464532d46796c6bca7beeedd62c9660f1
-}
-Msrc/main/java/com/banhauniversity/sidalih/controller/InventoryController.java,0\c\0caf0fd047c30b864407a4197ebee262c5660607
 Ä
 Psrc/main/java/com/banhauniversity/sidalih/repository/PrescriptionRepository.java,5\f\5f2c56e6cc460e9453bd91cefd29c0337af5cf9d
 Ä
 Psrc/main/java/com/banhauniversity/sidalih/controller/PrescriptionController.java,0\4\043c8d20cff0f6f022e3d8d19550840f4bda1b00
-r
-Bsrc/main/java/com/banhauniversity/sidalih/entity/Prescription.java,7\0\708ed5fbae9b21d80fb9a4ac180f58a2e49668b2
-l
-<src/main/java/com/banhauniversity/sidalih/entity/Useage.java,8\8\88ac8f468a6b3860c296e4e7ca1001ff850498fa
-z
-Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1

@@ -29,4 +29,10 @@ public class CollegeUseageController {
     public void delete(@PathVariable long id){
         collegeUseageService.delete(id);
     }
+
+    @PutMapping
+    public CollegeUseages update(@RequestBody CollegeUseages collegeUseages){
+        collegeUseageService.delete(collegeUseages.getId());
+        return collegeUseageService.add(collegeUseages);
+    }
 }

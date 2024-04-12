@@ -65,3 +65,11 @@ r
 Bsrc/main/java/com/banhauniversity/sidalih/entity/Prescription.java,7\0\708ed5fbae9b21d80fb9a4ac180f58a2e49668b2
 m
 =src/main/java/com/banhauniversity/sidalih/entity/Patient.java,d\3\d3cd83ffcda19424d1187c20e9378adbd22a26b0
+z
+Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1
+z
+Jsrc/main/java/com/banhauniversity/sidalih/controller/UseageController.java,8\4\845cc7c21ac24258bf26befc81d63c03ed2e1156
+t
+Dsrc/main/java/com/banhauniversity/sidalih/service/UseageService.java,4\6\46ac163587e9655d5b55a7dd2ec2d04160dec6e0
+{
+Ksrc/main/java/com/banhauniversity/sidalih/service/CollegeUseageService.java,7\2\729a477269a5c932e290a8c638dd30cc660f69c7

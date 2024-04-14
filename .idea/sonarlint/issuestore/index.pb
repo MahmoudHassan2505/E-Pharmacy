@@ -23,8 +23,6 @@ k
 ;src/main/java/com/banhauniversity/sidalih/dto/AddUsage.java,6\d\6d06634069d3470103ce8323ffd55f736654d100
 s
 Csrc/main/java/com/banhauniversity/sidalih/entity/OrderMedicine.java,7\4\74d1c5d9154132e141f18fd0e7798b4e8857d101
-o
-?src/main/java/com/banhauniversity/sidalih/entity/Inventory.java,3\1\31d6f1ccf44e27d04919db66dc80a7b701f08182
 t
 Dsrc/main/java/com/banhauniversity/sidalih/dto/CollegeUseagesDto.java,3\a\3a805bdf43b233cab57d4d8875334f2e0c0412da
 m
@@ -73,3 +71,13 @@ z
 Jsrc/main/java/com/banhauniversity/sidalih/controller/UseageController.java,8\4\845cc7c21ac24258bf26befc81d63c03ed2e1156
 {
 Ksrc/main/java/com/banhauniversity/sidalih/service/CollegeUseageService.java,7\2\729a477269a5c932e290a8c638dd30cc660f69c7
+
+Qsrc/main/java/com/banhauniversity/sidalih/controller/CollegeUseageController.java,b\a\ba0c58fc4fd34153259f23154b4a4e3b5a4c34f9
+n
+>src/main/java/com/banhauniversity/sidalih/entity/Supplier.java,b\a\ba8b9c9effcb2c02a0ae747edf93e22683c33ac9
+k
+;src/main/java/com/banhauniversity/sidalih/entity/Order.java,0\0\008690e86c9f2acabd2481988f13413ad9a5b299
+o
+?src/main/java/com/banhauniversity/sidalih/entity/Inventory.java,3\1\31d6f1ccf44e27d04919db66dc80a7b701f08182
+x
+Hsrc/main/java/com/banhauniversity/sidalih/repository/UnitRepository.java,4\9\49acc38c4f56b317d08a6919fb39014daae429f7

@@ -20,6 +20,7 @@ public class MedicineService {
     MedicineCategoryRepository medicineCategoryRepository;
 
     public List<Medicine> findAll(){
+
         return medicineRepository.findAll();
     }
 

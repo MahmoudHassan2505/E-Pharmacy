@@ -48,7 +48,7 @@ public class PatientController {
         return true;
     }
 
-    @GetMapping("/{collegeName}")
+    @GetMapping("/college/{collegeName}")
     public List<Patient> collegeName(@PathVariable String collegeName){
         return patientServices.findByCollegeName(collegeName);
     }

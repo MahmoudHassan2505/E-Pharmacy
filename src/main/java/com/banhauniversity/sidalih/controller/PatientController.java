@@ -1,7 +1,6 @@
 package com.banhauniversity.sidalih.controller;
 
 import com.banhauniversity.sidalih.entity.Patient;
-import com.banhauniversity.sidalih.repository.PatientRepository;
 import com.banhauniversity.sidalih.service.PatientServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

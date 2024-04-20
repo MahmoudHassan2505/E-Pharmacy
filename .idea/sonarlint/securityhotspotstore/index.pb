@@ -75,10 +75,6 @@ r
 Bsrc/main/java/com/banhauniversity/sidalih/service/UnitService.java,a\a\aaa96af878c8fa4d433eb01daae59d406dca6ba8
 j
 :src/main/java/com/banhauniversity/sidalih/entity/Unit.java,5\4\543724ebdc79043445b2fa52401fec06c5b2793e
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-q
-Asrc/main/java/com/banhauniversity/sidalih/SidalihApplication.java,8\a\8a1fa4312be94af12cc16235ba28988155f556f6
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4

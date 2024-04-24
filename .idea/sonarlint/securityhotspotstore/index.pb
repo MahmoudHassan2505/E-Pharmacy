@@ -78,3 +78,35 @@ j
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
+n
+>src/main/java/com/banhauniversity/sidalih/entity/Medicine.java,a\3\a346aad917f0cb4240ea5d313a77e21e3884c4b4
+{
+Ksrc/main/java/com/banhauniversity/sidalih/entity/CollegeUseageMedicine.java,3\a\3ac7440f8f056409fa10296528ee9ecb07773e78
+Š
+Zsrc/main/java/com/banhauniversity/sidalih/repository/CollegeUseagesMedicineRepository.java,f\1\f1463027d5932865e26ea324f4cac73903a2ac8c
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+{
+Ksrc/main/java/com/banhauniversity/sidalih/controller/PatientController.java,3\8\38685c09aaec1529f5a90511c1b1d05ecc8d4cf0
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+x
+Hsrc/main/java/com/banhauniversity/sidalih/exception/CustomException.java,0\8\08baf192a7dd876a126f11448c3e997d7f542682
+y
+Isrc/main/java/com/banhauniversity/sidalih/exception/ExceptionMessage.java,7\c\7cab361d463d90e5a8092dcc8c41cb49d00d93b2
+v
+Fsrc/main/java/com/banhauniversity/sidalih/security/SecurityConfig.java,4\9\498b6101c4e13533707adfa06f5127e0a19f6db1
+|
+Lsrc/main/java/com/banhauniversity/sidalih/controller/MedicineController.java,c\c\cca59f7a974d9e29354b3d84c1ecbb9faf08cea2
+„
+Tsrc/main/java/com/banhauniversity/sidalih/controller/MedicineCategoryController.java,c\0\c0e03d1baa7880602da22319f5e11b2ce88586c5
+v
+Fsrc/main/java/com/banhauniversity/sidalih/service/MedicineService.java,6\c\6cf496221f511254cdbabb0c808486570bf441ff
+q
+Asrc/main/java/com/banhauniversity/sidalih/SidalihApplication.java,8\a\8a1fa4312be94af12cc16235ba28988155f556f6
+|
+Lsrc/main/java/com/banhauniversity/sidalih/repository/MedicineRepository.java,0\a\0a00df3587f3c2548e3b0607862544be28ee52ff
+9
+	readme.md,2\7\275d783e298228506068436512433d343feb52aa

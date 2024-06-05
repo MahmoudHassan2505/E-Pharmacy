@@ -23,21 +23,16 @@ public class SidalihApplication {
 		SpringApplication.run(SidalihApplication.class, args);
 	}
 	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter() {
-		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://192.168.107.74:5173","","http://50.18.142.31:5173","http://52.9.166.110:5173","http://3.70.101.28:5173","http://18.192.231.252:5173","http://3.70.101.28:5173")); // Allow requests from any origin
-		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
-				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
-				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
-		corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
-				"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
-		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+	public CorsFilter corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", corsConfiguration);
+		CorsConfiguration config = new CorsConfiguration();
 
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-		bean.setOrder(0); // Set the CORS filter to be the first in the filter chain
-		return bean;
+		config.setAllowCredentials(true);
+		config.addAllowedOrigin("https://master-benha-e-pharmacy.netlify.app"); // Replace with your frontend URL
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+
+		source.registerCorsConfiguration("/**", config);
+		return new CorsFilter(source);
 	}
 }

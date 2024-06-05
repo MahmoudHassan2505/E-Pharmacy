@@ -63,8 +63,6 @@ n
 Lsrc/main/java/com/banhauniversity/sidalih/controller/MedicineController.java,c\c\cca59f7a974d9e29354b3d84c1ecbb9faf08cea2
 r
 Bsrc/main/java/com/banhauniversity/sidalih/service/UserService.java,3\f\3ffe904ee33cd22d2d8f5e496ae480f72a2340fd
-n
->src/main/java/com/banhauniversity/sidalih/controller/Auth.java,a\b\aba3d4da184960800dae32c7d223d5c2915ff396
 :
 
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
@@ -78,8 +76,6 @@ v
 Fsrc/main/java/com/banhauniversity/sidalih/security/SecurityConfig.java,4\9\498b6101c4e13533707adfa06f5127e0a19f6db1
 Ä
 Psrc/test/java/com/banhauniversity/sidalih/repository/MedicineRepositoryTest.java,f\e\fe5d37e371f0bcedc9375b0c5e3ccc6ec2023cd9
-q
-Asrc/main/java/com/banhauniversity/sidalih/SidalihApplication.java,8\a\8a1fa4312be94af12cc16235ba28988155f556f6
 }
 Msrc/main/java/com/banhauniversity/sidalih/controller/InventoryController.java,0\c\0caf0fd047c30b864407a4197ebee262c5660607
 Å
@@ -124,3 +120,19 @@ t
 Dsrc/main/java/com/banhauniversity/sidalih/entity/UseageMedicine.java,9\1\91881b00fb6e18f3cfa2c36c73cf9b20ee3a87f8
 l
 <src/main/java/com/banhauniversity/sidalih/entity/Useage.java,8\8\88ac8f468a6b3860c296e4e7ca1001ff850498fa
+p
+@src/main/java/com/banhauniversity/sidalih/dto/StatisticsDTO.java,2\0\2010c866f14586679b4f6b2afdafbead4634d0c0
+z
+Jsrc/main/java/com/banhauniversity/sidalih/controller/UseageController.java,8\4\845cc7c21ac24258bf26befc81d63c03ed2e1156
+z
+Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1
+{
+Ksrc/main/java/com/banhauniversity/sidalih/controller/PatientController.java,3\8\38685c09aaec1529f5a90511c1b1d05ecc8d4cf0
+w
+Gsrc/main/java/com/banhauniversity/sidalih/service/DashboardService.java,8\1\8163a946f8f5a12079764229993315b8d65977af
+k
+;src/main/java/com/banhauniversity/sidalih/dto/SalesDTO.java,d\9\d97bd929ee41fad6a11d434b05a8be1af4062bd6
+y
+Isrc/main/java/com/banhauniversity/sidalih/controller/OrderController.java,f\a\fac39eec0daf7ea47c8b2e7ba13124e2872619a7
+t
+Dsrc/main/java/com/banhauniversity/sidalih/service/UseageService.java,4\6\46ac163587e9655d5b55a7dd2ec2d04160dec6e0

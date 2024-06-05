@@ -6,13 +6,11 @@ import com.banhauniversity.sidalih.entity.User;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.security.JwtService;
+import lombok.Getter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/auth")
@@ -41,6 +39,12 @@ public class Auth {
             return token;
         }
         throw new CustomException(ExceptionMessage.Invalid_Credential);
+    }
+
+    @GetMapping("/validate")
+    public boolean validate(@RequestParam("token") String token){
+
+       return jwtTokenUtil.validateToken(token);
     }
 
 }

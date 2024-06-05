@@ -1,0 +1,12 @@
+
+j
+java:S1128"HRemove this unused import 'com.banhauniversity.sidalih.entity.Medicine'.(ğŒş¿üÿÿÿÿ8¸Ìùùë1
+v
+java:S1128"TRemove this unused import 'com.banhauniversity.sidalih.repository.UseageRepository'.(õíöôùÿÿÿÿ8¸Ìùùë1
+g
+java:S1128	"ERemove this unused import 'jakarta.annotation.security.RolesAllowed'.(ŠÌêÿÿÿÿÿ8¸Ìùùë1
+\
+java:S1128
+"?Remove this unused import 'jakarta.persistence.GeneratedValue'.(‘ŒÇŒ8¸Ìùùë1
+e
+java:S1128"HRemove this unused import 'org.springframework.context.annotation.Role'.(“Æ“8¸Ìùùë1

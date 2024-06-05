@@ -1,0 +1,23 @@
+
+c
+java:S1192X"MDefine a constant instead of duplicating this literal "/pharmacy/**" 4 times.(¿š§Í
+_
+java:S1192T"IDefine a constant instead of duplicating this literal "/auth/**" 4 times.(óÖÕß
+\
+java:S1192Y"FDefine a constant instead of duplicating this literal "ADMIN" 3 times.(Õ¤Úï
+]
+java:S1874"BRemove this use of "EnableGlobalMethodSecurity"; it is deprecated.(Ö†×Öÿÿÿÿÿ
+Y
+java:S5344,">Don't use the default "PasswordEncoder" relying on plain-text.(þùˆèùÿÿÿÿ
+^
+java:S5738C"HRemove this call to a deprecated method, it has been marked for removal.(ˆ¼ÙÐ
+^
+java:S5738C"HRemove this call to a deprecated method, it has been marked for removal.(ˆ¼ÙÐ
+c
+java:S5738G"HRemove this call to a deprecated method, it has been marked for removal.(ÛüïÓýÿÿÿÿ
+B
+java:S1602I",Remove useless curly braces around statement(þÀÍ»
+c
+java:S5738P"HRemove this call to a deprecated method, it has been marked for removal.(«õÀ¤þÿÿÿÿ
+V	java:S125a"<This block of commented-out lines of code should be removed.(ÏÛÒ‡ÿÿÿÿÿ
+V	java:S125p"<This block of commented-out lines of code should be removed.(íìŠøûÿÿÿÿ

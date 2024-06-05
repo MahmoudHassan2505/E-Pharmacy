@@ -26,7 +26,7 @@ public class SidalihApplication {
 	public FilterRegistrationBean<CorsFilter> corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://192.168.107.74:5173","","http://50.18.142.31","http://52.9.166.110")); // Allow requests from any origin
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://192.168.107.74:5173","","http://50.18.142.31:5173","http://52.9.166.110:5173")); // Allow requests from any origin
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 				"Access-Control-Request-Method", "Access-Control-Request-Headers"));

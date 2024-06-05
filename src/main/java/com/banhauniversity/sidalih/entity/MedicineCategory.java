@@ -1,9 +1,15 @@
 package com.banhauniversity.sidalih.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "medicine_category")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MedicineCategory {
 
     @Id

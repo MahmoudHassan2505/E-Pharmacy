@@ -1,3 +1,5 @@
 
-x	java:S116"WRename this field "phone_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(άωÿÿÿÿ8¨άθ©λ1
-v	java:S116"URename this field "student_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Λϋÿÿÿÿ8¨άθ©λ1
+x	java:S116"WRename this field "phone_number" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(άωÿÿÿÿ8‚φ™¥σ1
+v	java:S116"URename this field "student_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Λϋÿÿÿÿ8‚φ™¥σ1
+`
+java:S1128">Remove this unused import 'org.hibernate.annotations.Cascade'.(πΨπϋÿÿÿÿ8…φ™¥σ1

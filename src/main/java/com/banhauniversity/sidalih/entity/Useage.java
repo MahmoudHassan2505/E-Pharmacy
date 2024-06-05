@@ -25,7 +25,7 @@ public class Useage {
     @JoinColumn(name = "prescription_id")
     private Prescription prescription;
 
-    @OneToMany(mappedBy = "useage")
+    @OneToMany(mappedBy = "useage",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<UseageMedicine> useageMedicines;
 
     public Useage(Date date, Prescription prescription, List<UseageMedicine> useageMedicines) {

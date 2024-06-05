@@ -2,6 +2,7 @@ package com.banhauniversity.sidalih.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Patient {
     private String collegeName;
     private Integer age;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "patient_disease",
             joinColumns = @JoinColumn(name = "patient_id",referencedColumnName = "national_id"),

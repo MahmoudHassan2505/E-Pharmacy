@@ -27,7 +27,7 @@ public class Prescription {
     @JoinColumn(name = "pateint_id")
     private Patient patient;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "prescription_medicine",
             joinColumns = @JoinColumn(name = "prescription_id",referencedColumnName = "id"),

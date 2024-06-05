@@ -2,12 +2,14 @@ package com.banhauniversity.sidalih.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.sql.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "medicine")
+@Builder
 public class Medicine {
 
     @Id
@@ -37,13 +39,31 @@ public class Medicine {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private MedicineCategory medicineCategory;
 
-    @OneToMany(mappedBy = "medicine")
+    @OneToMany(mappedBy = "medicine",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderMedicine> orderMedicines;
 
-    @OneToMany(mappedBy = "medicine")
+    @OneToMany(mappedBy = "medicine",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<UseageMedicine> useageMedicines;
+
+    public Medicine(long id, long barcode, String name, String arabicname, String dosageform, String strength, String activeingredient, String manufacturer, long alertamount, long alertexpired, String unit, MedicineCategory medicineCategory, List<OrderMedicine> orderMedicines, List<UseageMedicine> useageMedicines) {
+        this.id = id;
+        this.barcode = barcode;
+        this.name = name;
+        this.arabicname = arabicname;
+        this.dosageform = dosageform;
+        this.strength = strength;
+        this.activeingredient = activeingredient;
+        this.manufacturer = manufacturer;
+        this.alertamount = alertamount;
+        this.alertexpired = alertexpired;
+        this.unit = unit;
+        this.medicineCategory = medicineCategory;
+        this.orderMedicines = orderMedicines;
+        this.useageMedicines = useageMedicines;
+    }
+    public Medicine(){}
 
     public long getId() {
         return id;

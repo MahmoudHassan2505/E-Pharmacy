@@ -36,8 +36,6 @@ S
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 v
-Fsrc/main/java/com/banhauniversity/sidalih/security/SecurityConfig.java,4\9\498b6101c4e13533707adfa06f5127e0a19f6db1
-v
 Fsrc/main/java/com/banhauniversity/sidalih/service/MedicineService.java,6\c\6cf496221f511254cdbabb0c808486570bf441ff
 „
 Tsrc/main/java/com/banhauniversity/sidalih/controller/MedicineCategoryController.java,c\0\c0e03d1baa7880602da22319f5e11b2ce88586c5

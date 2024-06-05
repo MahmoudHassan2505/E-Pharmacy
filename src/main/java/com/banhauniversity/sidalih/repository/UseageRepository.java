@@ -1,16 +1,13 @@
 package com.banhauniversity.sidalih.repository;
 
-import com.banhauniversity.sidalih.dto.MedicineStatus;
 import com.banhauniversity.sidalih.dto.Reports;
 import com.banhauniversity.sidalih.dto.Sales;
-import com.banhauniversity.sidalih.entity.Prescription;
 import com.banhauniversity.sidalih.entity.Useage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Date;
 import java.util.List;
 
 @Repository
@@ -37,6 +34,14 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
             "GROUP BY pa.collegeName")
     List<Reports>findCollegeSales(@Param("month") int month, @Param("year") int year);
 
+    @Query("SELECT new com.banhauniversity.sidalih.dto.Reports(pa.collegeName, COUNT(u.id)) " +
+            "FROM Useage u " +
+            "LEFT JOIN u.prescription pr " +
+            "LEFT JOIN pr.patient pa " +
+            "WHERE EXTRACT(YEAR FROM u.date) = :year " +
+            "GROUP BY pa.collegeName")
+    List<Reports>findCollegeSalesPerYear(@Param("year") int year);
+
     List<Useage> findAllByPrescriptionPatientNationalid(long id);
 
     @Query("SELECT u " +
@@ -49,4 +54,11 @@ public interface UseageRepository extends JpaRepository<Useage,Long> {
             @Param("month") int month,
             @Param("year") int year
     );
+
+    @Query("select count(u.id) from Useage as u where EXTRACT(YEAR FROM u.date) = :year")
+    int getUseagePrescriptionCount(@Param("year") int year);
+
+    @Query("select u from Useage u where EXTRACT(MONTH FROM u.date) = :month AND EXTRACT(YEAR FROM u.date) = :year")
+    List<Useage> findAllByMonthAndYear( @Param("month") int month,
+                                     @Param("year") int year);
 }

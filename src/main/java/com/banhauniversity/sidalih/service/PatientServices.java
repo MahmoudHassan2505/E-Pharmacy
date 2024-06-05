@@ -1,5 +1,6 @@
 package com.banhauniversity.sidalih.service;
 
+import com.banhauniversity.sidalih.dto.StudentPerCollageDTO;
 import com.banhauniversity.sidalih.entity.Patient;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
@@ -48,4 +49,11 @@ public class PatientServices {
     }
 
 
+    public int getStudentCount() {
+        return patientRepository.studentCount();
+    }
+
+    public List<StudentPerCollageDTO> getStudentperCollage() {
+     return  patientRepository.getStudentperCollage();
+    }
 }

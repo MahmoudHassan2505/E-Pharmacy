@@ -1,28 +1,19 @@
 package com.banhauniversity.sidalih.service;
 
-import com.banhauniversity.sidalih.dto.AddUsage;
-import com.banhauniversity.sidalih.dto.InventoryDto;
-import com.banhauniversity.sidalih.dto.UseagesDTO;
+import com.banhauniversity.sidalih.dto.*;
 import com.banhauniversity.sidalih.entity.*;
 import com.banhauniversity.sidalih.exception.CustomException;
 import com.banhauniversity.sidalih.exception.ExceptionMessage;
 import com.banhauniversity.sidalih.repository.InventoryRepository;
-import com.banhauniversity.sidalih.repository.NotificationRepository;
 import com.banhauniversity.sidalih.repository.UseageMedicineRepository;
 import com.banhauniversity.sidalih.repository.UseageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UseageService {
@@ -180,7 +171,34 @@ public class UseageService {
     }
 
 
+    public int getUseagePrescriptionCount(int year) {
+        return useageRepository.getUseagePrescriptionCount(year);
+    }
+
+    public List<Reports> getPrescriptionPerCollage(int year) {
+        return useageRepository.findCollegeSalesPerYear(year);
+    }
+
+    public List<SalesDTO> getSalesStatistics(int year) {
+        List<SalesDTO> salesDTOList = new ArrayList<>();
+        double totalPrice;
+
+        for (int i = 1;i<=12; i++){
+            totalPrice=0;
+            System.out.println("Month: " +i);
+            List<Useage> useagesList = useageRepository.findAllByMonthAndYear(i,year);
+
+            for (Useage useage:useagesList) {
+
+                for (UseageMedicine useageMedicine:useage.getUseageMedicines()) {
+                    totalPrice+= useageMedicine.getPrice()* useageMedicine.getAmount();
+                }
+            }
 
 
+            salesDTOList.add(SalesDTO.builder().month(i).price(totalPrice).build());
+        }
 
+        return salesDTOList;
+    }
 }

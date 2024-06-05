@@ -12,4 +12,5 @@ import java.util.List;
 public interface PrescriptionRepository extends JpaRepository<Prescription,Long> {
 
     List<Prescription> findAllByPrsPrescriptionCategoryId(long id);
+
 }

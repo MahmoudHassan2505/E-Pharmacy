@@ -65,4 +65,6 @@ public class Useage {
     public void setUseageMedicines(List<UseageMedicine> useageMedicines) {
         this.useageMedicines = useageMedicines;
     }
+
+
 }

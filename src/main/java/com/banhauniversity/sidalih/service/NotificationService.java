@@ -16,4 +16,12 @@ public class NotificationService {
 
         return notificationRepository.findAll();
     }
+
+    public int getRunningOut() {
+        return notificationRepository.getState("أوشك علي النفاد");
+    }
+
+    public int getAboutToExpire() {
+        return notificationRepository.getState("أوشك علي الانتهاء");
+    }
 }

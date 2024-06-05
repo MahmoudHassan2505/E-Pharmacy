@@ -43,24 +43,23 @@ public class OrderService {
         return orderRepository.findAllBySupplierId(id);
     }
 
-    public Order add(Order order){
-        orderRepository.findById(order.getId()).ifPresent((a)->{
-            throw new CustomException(ExceptionMessage.ID_is_Exist);
-        });
+    public Order add(Order order) {
+        // Save the order first to generate an ID
+        Order savedOrder = orderRepository.saveAndFlush(order);
 
-        Order savedOrder = orderRepository.save(order);
-
-        order.getOrderMedicines().forEach(orderMedicine -> {
+        // Set the saved order to each OrderMedicine and save them
+        for (OrderMedicine orderMedicine : order.getOrderMedicines()) {
             orderMedicine.setOrder(savedOrder);
             orderMedicineRepository.save(orderMedicine);
-        });
+        }
 
-        orderRepository.findById(savedOrder.getId()).get().getOrderMedicines().forEach((orderMedicine)->{
+        // Create corresponding inventory entries
+        for (OrderMedicine orderMedicine : savedOrder.getOrderMedicines()) {
             inventoryService.add(Inventory.builder().orderMedicine(orderMedicine).amount(0).build());
-        });
+        }
 
         updateNotification();
-        return order;
+        return savedOrder;
     }
 
     public void delete(long id){

@@ -20,7 +20,7 @@ public class Order {
     @JoinColumn(name = "supplier_id", referencedColumnName = "id")
     private Supplier supplier;
 
-    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order")
     private List<OrderMedicine> orderMedicines;
 
 

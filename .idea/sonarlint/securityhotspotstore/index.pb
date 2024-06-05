@@ -31,10 +31,6 @@ m
 =src/main/java/com/banhauniversity/sidalih/entity/Disease.java,8\2\8210eee85843f963a6b4ffaf9d7529091466eeaf
 o
 ?src/main/java/com/banhauniversity/sidalih/entity/Inventory.java,3\1\31d6f1ccf44e27d04919db66dc80a7b701f08182
-k
-;src/main/java/com/banhauniversity/sidalih/entity/Order.java,0\0\008690e86c9f2acabd2481988f13413ad9a5b299
-s
-Csrc/main/java/com/banhauniversity/sidalih/entity/OrderMedicine.java,7\4\74d1c5d9154132e141f18fd0e7798b4e8857d101
 z
 Jsrc/main/java/com/banhauniversity/sidalih/entity/PrescriptionCategory.java,2\e\2e47ea0970397a7dec4be5c2372ddfcbd94378c7
 n
@@ -67,8 +63,6 @@ n
 Lsrc/main/java/com/banhauniversity/sidalih/controller/MedicineController.java,c\c\cca59f7a974d9e29354b3d84c1ecbb9faf08cea2
 r
 Bsrc/main/java/com/banhauniversity/sidalih/service/UserService.java,3\f\3ffe904ee33cd22d2d8f5e496ae480f72a2340fd
-{
-Ksrc/main/java/com/banhauniversity/sidalih/controller/PatientController.java,3\8\38685c09aaec1529f5a90511c1b1d05ecc8d4cf0
 j
 :src/main/java/com/banhauniversity/sidalih/entity/User.java,3\c\3c1655049928f7032411144dd091533560ead1fc
 x
@@ -128,17 +122,5 @@ x
 Hsrc/main/java/com/banhauniversity/sidalih/repository/UserRepository.java,0\6\068585e40cd4f53b775003049e3124aeb93bded5
 t
 Dsrc/main/java/com/banhauniversity/sidalih/entity/UseageMedicine.java,9\1\91881b00fb6e18f3cfa2c36c73cf9b20ee3a87f8
-z
-Jsrc/main/java/com/banhauniversity/sidalih/controller/UseageController.java,8\4\845cc7c21ac24258bf26befc81d63c03ed2e1156
-p
-@src/main/java/com/banhauniversity/sidalih/dto/StatisticsDTO.java,2\0\2010c866f14586679b4f6b2afdafbead4634d0c0
-k
-;src/main/java/com/banhauniversity/sidalih/dto/SalesDTO.java,d\9\d97bd929ee41fad6a11d434b05a8be1af4062bd6
 l
 <src/main/java/com/banhauniversity/sidalih/entity/Useage.java,8\8\88ac8f468a6b3860c296e4e7ca1001ff850498fa
-z
-Jsrc/main/java/com/banhauniversity/sidalih/repository/UseageRepository.java,9\c\9c122fc94b3d35acf1af8703f23715a1d2fe9cc1
-t
-Dsrc/main/java/com/banhauniversity/sidalih/service/UseageService.java,4\6\46ac163587e9655d5b55a7dd2ec2d04160dec6e0
-w
-Gsrc/main/java/com/banhauniversity/sidalih/service/DashboardService.java,8\1\8163a946f8f5a12079764229993315b8d65977af

@@ -47,14 +47,15 @@ public class CollegeUseageService {
     }
 
     public CollegeUseages add(CollegeUseages collegeUseages){
-
+        System.out.println(collegeUseages.getCollegeUseagesMedicines().size());
         ValidateMedicine(collegeUseages.getCollegeUseagesMedicines());
 
+        collegeUseagesRepository.save(collegeUseages);
+        System.out.println(collegeUseages.getCollegeUseagesMedicines().size());
         List<CollegeUseageMedicine> collegeUseageMedicines = collegeUseages.getCollegeUseagesMedicines();
 
-        collegeUseagesRepository.save(collegeUseages);
-
         collegeUseageMedicines.forEach(inventoryDto -> {
+
             collegeUseagesMedicineRepository.save(new CollegeUseageMedicine(inventoryDto.getAmount(),collegeUseages,inventoryDto.getInventory()));
             updateInventory(collegeUseages.getCollegeUseagesMedicines());
 

@@ -23,6 +23,6 @@ public class CollegeUseages {
     @Column(name = "collegename")
     private String collegeName;
 
-    @OneToMany(mappedBy = "collegeUseages",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "collegeUseages")
     private List<CollegeUseageMedicine> collegeUseagesMedicines;
 }

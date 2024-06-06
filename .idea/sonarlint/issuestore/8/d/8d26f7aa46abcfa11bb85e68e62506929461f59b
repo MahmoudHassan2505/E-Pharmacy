@@ -1,12 +1,0 @@
-
-X	java:S125 "<This block of commented-out lines of code should be removed.(ğ õÃ8± õÁş1
-t
-java:S1128"WRemove this unused import 'com.banhauniversity.sidalih.repository.InventoryRepository'.(Ä¤•˜8¦”‹Âş1
-~
-java:S1128"\Remove this unused import 'com.banhauniversity.sidalih.repository.UseageMedicineRepository'.(Œ©±³ûÿÿÿÿ8¦”‹Âş1
-v
-java:S1128"TRemove this unused import 'com.banhauniversity.sidalih.repository.UseageRepository'.(õíöôùÿÿÿÿ8¦”‹Âş1
-m
-java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åıÿÿÿÿ8§”‹Âş1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8§”‹Âş1

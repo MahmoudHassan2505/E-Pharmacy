@@ -21,7 +21,6 @@ public class CollegeUseageController {
 
     @PostMapping
     public CollegeUseages add(@RequestBody CollegeUseages collegeUseages){
-        System.out.println(collegeUseages.getId());
         return collegeUseageService.add(collegeUseages);
     }
 
